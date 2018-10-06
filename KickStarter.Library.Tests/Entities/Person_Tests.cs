@@ -3,7 +3,6 @@ using KickStarter.Library.Enums.Bandmate.Library.Enums;
 using KickStarter.Library.Tests.Helpers;
 using System;
 using System.IO;
-using System.Configuration;
 using System.Linq;
 using System.Xml.Serialization;
 using Xunit;
