@@ -78,7 +78,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Insert Date")]
         [DataType(DataType.DateTime)]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
-        [XmlAttributeAttribute]
+        [XmlAttribute("InsertDate")]
         public DateTime InsertDate
         {
             get
@@ -99,7 +99,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Update Date")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         [DataType(DataType.DateTime)]
-        [@XmlAttribute]
+        [XmlAttribute("UpdateDate")]
         public DateTime UpdateDate
         {
             get

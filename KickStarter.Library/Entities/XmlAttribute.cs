@@ -12,10 +12,9 @@
 // <summary></summary>
 // ***********************************************************************
 using System;
+using System.Xml;
 
 namespace KickStarter.Library.Entities
 {
-    internal class XmlAttribute : Attribute
-    {
-    }
+
 }

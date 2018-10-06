@@ -13,6 +13,7 @@
 // ***********************************************************************
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
 using System;
+using System.ServiceModel;
 
 namespace KickStarter.Library.Interfaces
 {

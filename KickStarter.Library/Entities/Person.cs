@@ -87,13 +87,14 @@ namespace KickStarter.Library.Entities
 
         #region Properties
 
+
         /// <summary>
         /// Gets or sets the person identifier.
         /// </summary>
         /// <value>The person identifier.</value>
         [Required(ErrorMessage = "Person Id Required!")]
         [DisplayName("Id")]
-        [XmlAnyAttribute]
+        [XmlAttribute("Id")]
         [DataMember]
         public Guid Id
         {
@@ -119,7 +120,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("First Name")]
         [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
-        [XmlAnyAttribute]
+        [XmlAttribute("FirstName")]
         [DataMember]
         public string FirstName
         {
@@ -144,7 +145,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Middle Name")]
         [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
-        [XmlAnyAttribute]
+        [XmlAttribute("MiddleName")]
         [DataMember]
         public string MiddleName
         {
@@ -169,7 +170,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Insertion")]
         [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
-        [XmlAnyAttribute]
+        [XmlAttribute("Insertion")]
         [DataMember]
         public string Insertion
         {
@@ -195,7 +196,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Last Name")]
         [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
-        [XmlAnyAttribute]
+        [XmlAttribute("LastName")]
         [DataMember]
         public string LastName
         {
@@ -220,7 +221,7 @@ namespace KickStarter.Library.Entities
         [DisplayName("Suffix")]
         [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
-        [XmlAnyAttribute]
+        [XmlAttribute("Suffix")]
         [DataMember]
         public string Suffix
         {
@@ -243,7 +244,7 @@ namespace KickStarter.Library.Entities
         /// </summary>
         /// <value>The gender.</value>
         [DisplayName("Gender")]
-        [XmlAnyAttribute]
+        [XmlAttribute("Gender")]
         [DataMember]
         public Gender Gender
         {
@@ -293,7 +294,7 @@ namespace KickStarter.Library.Entities
         /// <value>The social segurity number.</value>
         [DisplayName("Social Segurity Number")]
         [DataType(DataType.Text)]
-        [XmlAnyAttribute]
+        [XmlAttribute("SocialSegurityNumber")]
         [DataMember]
         public string SocialSegurityNumber
         {
@@ -346,7 +347,7 @@ namespace KickStarter.Library.Entities
 
         [DisplayName("Description")]
         [DataType(DataType.MultilineText)]
-        [XmlAnyAttribute]
+        [XmlAttribute("Description")]
         [DataMember]
         public string Description
         {
