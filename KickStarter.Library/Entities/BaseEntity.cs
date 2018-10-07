@@ -12,6 +12,7 @@
 // <summary></summary>
 // ***********************************************************************
 
+using AutoMapper;
 using KickStarter.Library.Interfaces;
 using System;
 using System.Collections.Generic;
@@ -21,7 +22,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Serialization;
-
+//using ValidationContext = AutoMapper.ValidationContext;
 
 namespace KickStarter.Library.Entities
 {
@@ -38,7 +39,7 @@ namespace KickStarter.Library.Entities
 
         private DateTime _insertDate = DateTime.Now;
         private DateTime _updateDate = DateTime.Now;
-        private Boolean _state;
+        private Boolean _isValid;
 
         #endregion
 
@@ -57,19 +58,21 @@ namespace KickStarter.Library.Entities
 
         #endregion
 
+        #region Properties
+
         [NotMapped]
-        public Boolean State
+        public Boolean IsValid
         {
             get
             {
-                return _state;
+                return _isValid;
             }
             set
             {
-                if (_state != value)
+                if (_isValid != value)
                 {
-                    _state = value;
-                    OnPropertyChanged("State");
+                    _isValid = value;
+                    OnPropertyChanged("IsValid");
                 }
             }
         }
@@ -116,6 +119,8 @@ namespace KickStarter.Library.Entities
             }
         }
 
+        #endregion
+
         public string Error
         {
             get { return null; }    //TODO: Check where this is comming from. Is triggered by a report call.
@@ -125,6 +130,11 @@ namespace KickStarter.Library.Entities
         //{
         //    get { return OnValidate(propertyName); }
         //}
+
+        [NotMapped]
+        [IgnoreMap]
+        public IDictionary<string, HashSet<string>> ValidationResults { get; protected set; }
+
 
         protected virtual string OnValidate(string propertyName)
         {
@@ -137,7 +147,7 @@ namespace KickStarter.Library.Entities
             var value = this.GetType().GetProperty(propertyName).GetValue(this, null);
             var results = new List<ValidationResult>(1);
 
-            var context = new ValidationContext(this, null, null) { MemberName = propertyName };
+            var context = new System.ComponentModel.DataAnnotations.ValidationContext(this, null, null) { MemberName = propertyName };
             var result = Validator.TryValidateProperty(value, context, results);
 
             if (!result)
@@ -153,10 +163,19 @@ namespace KickStarter.Library.Entities
         private void SetState()
         {
             var validationResults = new List<ValidationResult>();
-            var context = new ValidationContext(this, null, null);
+            var context = new System.ComponentModel.DataAnnotations.ValidationContext(this, null, null);
             Validator.TryValidateObject(this, context, validationResults, true);
 
-            State = (validationResults.Count == 0);
+            ValidationResults = new Dictionary<string, HashSet<string>>();
+            foreach (ValidationResult item in validationResults)
+            {
+                var em = new HashSet<string>();
+                em.Add(item.ErrorMessage.ToString());
+
+                ValidationResults.Add(item.MemberNames.First().ToString(), em);
+
+            }
+            IsValid = (ValidationResults.Count == 0);
         }
     }
 }

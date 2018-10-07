@@ -33,7 +33,7 @@ namespace KickStarter.Library.Tests.Entities
             Assert.Null(person.Image);
             Assert.Null(person.Description);
             Assert.Null(person.Error);
-            Assert.True(person.State == false);
+            Assert.True(person.IsValid == false);
         }
 
         /// <summary>
@@ -329,6 +329,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Test_Person_Validation()
         {
+            //Todo: validate object on ValidationTreults
             var person = new Person();
             Assert.IsType<Person>(person);
             Assert.NotNull(person.Id);
@@ -344,15 +345,22 @@ namespace KickStarter.Library.Tests.Entities
             Assert.Null(person.Image);
             Assert.Null(person.Description);
             Assert.Null(person.Error);
-            Assert.True(person.State == false);
+            Assert.True(person.IsValid == false);
 
             var errors = ValidationHelper.ValidateEntity(person);
+            //Check Validation collection for the correct key
+            Assert.True(person.ValidationResults.ContainsKey("FirstName"));
+            Assert.True(person.ValidationResults.ContainsKey("LastName"));
+            Assert.True(person.ValidationResults.ContainsKey("DateOfBirth"));
+
+            // Assert.True(person.ValidationResults.Contains("DateOfBirth", "First Name Required!"));
+
             //Check required fields
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("First Name Required!")) != null);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Last Name Required!")) != null);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Date Of Birth Required!")) != null);
 
-            Assert.True(person.State == false);
+            Assert.True(person.IsValid == false);
 
             // Check for data length
             person.FirstName = "12345678901234567890123456789012345678901234567890 1";
@@ -371,7 +379,7 @@ namespace KickStarter.Library.Tests.Entities
             errors = ValidationHelper.ValidateEntity(person);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
 
-            Assert.True(person.State == false);
+            Assert.True(person.IsValid == false);
 
             person.FirstName = "Person FirstName";
             person.LastName = "Person LastName";
@@ -381,10 +389,10 @@ namespace KickStarter.Library.Tests.Entities
 
             errors = ValidationHelper.ValidateEntity(person);
 
-            Assert.True(errors.Count() == 0);
+            Assert.True(person.ValidationResults.Count() == 0);
 
             //Check the state
-            Assert.True(person.State == true);
+            Assert.True(person.IsValid == true);
         }
 
         [Fact]

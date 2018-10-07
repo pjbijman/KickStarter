@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\KickStarter.DataLayer\KickStarter.DataLayer.csproj" />
+    <ProjectReference Include="..\KickStarter.Library\KickStarter.Library.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="QueryModel\" />
+  </ItemGroup>
+
+</Project>

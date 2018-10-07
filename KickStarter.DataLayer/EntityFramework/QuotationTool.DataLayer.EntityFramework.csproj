@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp2.0</TargetFramework>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <Content Include="appsettings.json">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	    <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+	  </Content>
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.0.2" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.2" PrivateAssets="All" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="2.0.2" />
+		<PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.FileExtensions" Version="2.0.1" />
+		<PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<DotNetCliToolReference Include="Microsoft.EntityFrameworkCore.Tools.DotNet" Version="2.0.1" />
+		<DotNetCliToolReference Include="Microsoft.Extensions.SecretManager.Tools" Version="2.0.0" />
+		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\QuotationTool.BusinessLayer.Entities\QuotationTool.BusinessLayer.Entities.csproj" />
+		<ProjectReference Include="..\QuotationTool.BusinessLayer.QueryModel\QuotationTool.BusinessLayer.QueryModel.csproj" />
+		<ProjectReference Include="..\QuotationTool.DataLayer\QuotationTool.DataLayer.csproj" />
+		<ProjectReference Include="..\QuotationTool.Framework.Query\QuotationTool.Framework.Query.csproj" />
+	</ItemGroup>
+	
+	<PropertyGroup>
+		<GenerateRuntimeConfigurationFiles>true</GenerateRuntimeConfigurationFiles>
+	</PropertyGroup>
+</Project>
