@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace KickStarter.ServiceLayer.Services.Attributes.Interfaces
+namespace KickStarter.ServiceLayer.Attributes.Interfaces
 {
     public interface IJsonAttribute
     {

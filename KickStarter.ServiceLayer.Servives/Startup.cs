@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Hosting;
 
-namespace KickStarter.ServiceLayer.Services
+namespace KickStarter.ServiceLayer
 {
     public class Startup
     {

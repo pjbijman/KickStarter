@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using System.Collections.Generic;
 
-namespace KickStarter.ServiceLayer.Services.Helpers
+namespace KickStarter.ServiceLayer.Helpers
 {
     public static class ModelStateDictionaryExtensions
     {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using KickStarter.ServiceLayer.Services.Attributes.Interfaces;
+using KickStarter.ServiceLayer.Attributes.Interfaces;
 
 namespace KickStarter.ServiceLayer.Services.Helpers
 {

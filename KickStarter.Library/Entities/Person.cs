@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 
 namespace KickStarter.Library.Entities
 {
-    public class Person : BaseEntity, IPerson
+    public class Person : BaseEntity, IPerson,  IIdentifiable
     {
         #region Fields
 
@@ -364,6 +364,8 @@ namespace KickStarter.Library.Entities
                 }
             }
         }
+
+        int IIdentifiable.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
 
         #endregion
 

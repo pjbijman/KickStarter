@@ -1,10 +1,11 @@
-﻿using System;
-using System.Linq;
+﻿using KickStarter.ServiceLayer.Attributes;
+using KickStarter.ServiceLayer.Attributes.Interfaces;
+using KickStarter.ServiceLayer.Services.Helpers;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using KickStarter.ServiceLayer.Services.Attributes;
-using KickStarter.ServiceLayer.Services.Attributes.Interfaces;
+using System;
+using System.Linq;
 
-namespace KickStarter.ServiceLayer.Services.Helpers
+namespace KickStarter.ServiceLayer.Helpers
 {
     public class JsonModelBinderProvider : IModelBinderProvider
     {

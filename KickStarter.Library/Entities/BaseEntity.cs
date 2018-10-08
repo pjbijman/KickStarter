@@ -135,7 +135,6 @@ namespace KickStarter.Library.Entities
         [IgnoreMap]
         public IDictionary<string, HashSet<string>> ValidationResults { get; protected set; }
 
-
         protected virtual string OnValidate(string propertyName)
         {
             if (string.IsNullOrEmpty(propertyName))
@@ -176,6 +175,19 @@ namespace KickStarter.Library.Entities
 
             }
             IsValid = (ValidationResults.Count == 0);
+        }
+
+        public void AddError(string propertyName, string errorMessage)
+        {
+            if (!ValidationResults.ContainsKey(propertyName))
+            {
+                ValidationResults.Add(propertyName, new HashSet<string>(new[] { errorMessage }));
+            }
+            else
+            {
+                if (!ValidationResults[propertyName].Contains(errorMessage))
+                    ValidationResults[propertyName].Add(errorMessage);
+            }
         }
     }
 }

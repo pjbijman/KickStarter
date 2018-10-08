@@ -1,4 +1,4 @@
-﻿namespace KickStarter.ServiceLayer.Services.Helpers
+﻿namespace KickStarter.ServiceLayer.Helpers
 {
     public class Appsettings
     {

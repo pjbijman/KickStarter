@@ -1,8 +1,8 @@
 ﻿using System;
 using Newtonsoft.Json;
-using KickStarter.ServiceLayer.Services.Attributes.Interfaces;
+using KickStarter.ServiceLayer.Attributes.Interfaces;
 
-namespace KickStarter.ServiceLayer.Services.Attributes
+namespace KickStarter.ServiceLayer.Attributes
 {
     public class FromJsonAttribute : Attribute, IJsonAttribute
     {

@@ -6,17 +6,18 @@
 
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.3.0" />
+    <PackageReference Include="FluentValidation" Version="8.0.100" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="2.1.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.1.1" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KickStarter.DataLayer\KickStarter.DataLayer.csproj" />
-    <ProjectReference Include="..\KickStarter.Library\KickStarter.Library.csproj" />
+    <Folder Include="QueryModel\" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="QueryModel\" />
+    <ProjectReference Include="..\KickStarter.DataLayer\KickStarter.DataLayer.csproj" />
+    <ProjectReference Include="\\mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library\KickStarter.Library.csproj" />
   </ItemGroup>
 
 </Project>

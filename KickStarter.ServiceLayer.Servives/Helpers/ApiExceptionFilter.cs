@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
-namespace KickStarter.ServiceLayer.Services.Helpers
+namespace KickStarter.ServiceLayer.Helpers
 {
     public class ApiExceptionFilter : ExceptionFilterAttribute, IExceptionFilter
     {

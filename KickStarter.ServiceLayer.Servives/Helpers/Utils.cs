@@ -3,7 +3,7 @@ using System.IO;
 using System.Text;
 using Microsoft.AspNetCore.Http;
 
-namespace KickStarter.ServiceLayer.Services.Helpers
+namespace KickStarter.ServiceLayer.Helpers
 {
     public class Utils
     {

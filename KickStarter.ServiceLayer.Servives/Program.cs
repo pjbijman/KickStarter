@@ -8,7 +8,7 @@ using NLog;
 using NLog.Web;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
-namespace KickStarter.ServiceLayer.Servives
+namespace KickStarter.ServiceLayer
 {
     public class Program
     {

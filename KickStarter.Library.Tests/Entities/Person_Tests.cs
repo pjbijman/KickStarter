@@ -329,7 +329,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Test_Person_Validation()
         {
-            //Todo: validate object on ValidationTreults
+            //Todo: validate object on Validation results
             var person = new Person();
             Assert.IsType<Person>(person);
             Assert.NotNull(person.Id);
@@ -363,19 +363,19 @@ namespace KickStarter.Library.Tests.Entities
             Assert.True(person.IsValid == false);
 
             // Check for data length
-            person.FirstName = "12345678901234567890123456789012345678901234567890 1";
+            person.FirstName = TestHelper.RandomString(51);
             errors = ValidationHelper.ValidateEntity(person);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
 
-            person.LastName = "12345678901234567890123456789012345678901234567890 1";
+            person.LastName = TestHelper.RandomString(51);
             errors = ValidationHelper.ValidateEntity(person);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
 
-            person.Suffix = "12345678901234567890123456789012345678901234567890 1";
+            person.Suffix = TestHelper.RandomString(51);
             errors = ValidationHelper.ValidateEntity(person);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
 
-            person.Insertion = "12345678901234567890123456789012345678901234567890 1";
+            person.Insertion = TestHelper.RandomString(51);
             errors = ValidationHelper.ValidateEntity(person);
             Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
 
