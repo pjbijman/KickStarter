@@ -1,4 +1,18 @@
-﻿using Microsoft.AspNetCore.Hosting;
+﻿using Autofac;
+using Autofac.Extensions.DependencyInjection;
+using AutoMapper;
+using KickStarter.ServiceLayer.Helpers;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
+using QuotationTool.BusinessLayer.DI;
+using Swashbuckle.AspNetCore.Swagger;
+using System;
+using System.Linq;
 
 namespace KickStarter.ServiceLayer
 {
@@ -6,88 +20,88 @@ namespace KickStarter.ServiceLayer
     {
         public Startup(IHostingEnvironment env)
         {
-            //var builder = new ConfigurationBuilder()
-            //    .SetBasePath(env.ContentRootPath)
-            //    .AddJsonFile("appsettings.json", false, true)
-            //    .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true)
-            //    .AddEnvironmentVariables();
-            //Configuration = builder.Build();
+            var builder = new ConfigurationBuilder()
+                .SetBasePath(env.ContentRootPath)
+                .AddJsonFile("AppSettings.json", false, true)
+                .AddJsonFile($"AppSettings.{env.EnvironmentName}.json", true)
+                .AddEnvironmentVariables();
+            Configuration = builder.Build();
         }
 
-//        public IConfigurationRoot Configuration { get; }
+        public IConfigurationRoot Configuration { get; }
 
-//        // This method gets called by the runtime. Use this method to add services to the container.
-//        public IServiceProvider ConfigureServices(IServiceCollection services)
-//        {
-//            // Add our Config object so it can be injected
-//            services.Configure<Appsettings>(Configuration);
+        // This method gets called by the runtime. Use this method to add services to the container.
+        public IServiceProvider ConfigureServices(IServiceCollection services)
+        {
+            // Add our Config object so it can be injected
+            services.Configure<Appsettings>(Configuration);
 
-//            // Add framework services.
-//            services.AddMvcCore(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })
-//                .AddJsonOptions(options =>
-//                {
-//                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-//                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-//                });
+            // Add framework services.
+            services.AddMvcCore(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })
+                .AddJsonOptions(options =>
+                {
+                    options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+                    options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
+                });
 
-//            // Register the Swagger generator, defining one or more Swagger documents
-//            services.AddSwaggerGen(option => { option.SwaggerDoc("v1", new Info { Title = "My API", Version = "v1" }); });
+            // Register the Swagger generator, defining one or more Swagger documents
+            services.AddSwaggerGen(option => { option.SwaggerDoc("v1", new Info { Title = "KickStarter API", Version = "v1" }); });
 
-//            services.AddAutoMapper();
+            services.AddAutoMapper();
 
-//#if DEBUG
-//            Mapper.AssertConfigurationIsValid();
-//#endif
+            AutoMapperConfiguration.Configure();
 
-//            services.ConfigureBusinessLayerServices(Configuration);
+            Mapper.AssertConfigurationIsValid();
 
-//            // Autofac
-//            var builder = new ContainerBuilder();
-//            builder.Populate(services);
-//            builder.RegisterModule(new AutoFacModule());
+            services.ConfigureBusinessLayerServices(Configuration);
 
-//            var applicationContainer = builder.Build();
-//            return new AutofacServiceProvider(applicationContainer);
-//        }
+            // Autofac
+            var builder = new ContainerBuilder();
+            builder.Populate(services);
+            builder.RegisterModule(new AutoFacModule());
 
-//        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-//        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-//        {
-//            // Enable middleware to serve generated Swagger as a JSON endpoint.
-//            app.UseSwagger();
+            var applicationContainer = builder.Build();
+            return new AutofacServiceProvider(applicationContainer);
+        }
 
-//            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-//            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1"); });
+        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        {
+            // Enable middleware to serve generated Swagger as a JSON endpoint.
+            app.UseSwagger();
 
-//            if (env.IsDevelopment())
-//            {
-//                app.UseDeveloperExceptionPage();
-//                app.UseBrowserLink();
-//            }
+            // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
+            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1"); });
 
-//            app.UseStaticFiles();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+                app.UseBrowserLink();
+            }
 
-//            var backendRoutes = new[]
-//            {
-//                "/api/"
-//            };
+            app.UseStaticFiles();
 
-//            // Route all angular routes back to the root
-//            app.Use(async (context, next) =>
-//            {
-//                if (context.Request.Path.HasValue && !backendRoutes.Any(br =>
-//                        context.Request.Path.Value.StartsWith(br, StringComparison.OrdinalIgnoreCase)))
-//                    context.Request.Path = new PathString("/");
+            var backendRoutes = new[]
+            {
+                        "/api/"
+                    };
 
-//                await next();
-//            });
+            // Route all angular routes back to the root
+            app.Use(async (context, next) =>
+            {
+                if (context.Request.Path.HasValue && !backendRoutes.Any(br =>
+                        context.Request.Path.Value.StartsWith(br, StringComparison.OrdinalIgnoreCase)))
+                    context.Request.Path = new PathString("/");
 
-//            app.UseMvc();
+                await next();
+            });
 
-//            app.UseDefaultFiles();
-//            app.UseStaticFiles();
+            app.UseMvc();
 
-//            app.UseStatusCodePagesWithReExecute("/httpstatus/{0}");
-//        }
+            app.UseDefaultFiles();
+            app.UseStaticFiles();
+
+            app.UseStatusCodePagesWithReExecute("/httpstatus/{0}");
+        }
     }
 }

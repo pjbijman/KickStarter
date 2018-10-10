@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using System.Reflection;
-using KickStarter.ServiceLayer.Services;
-using Microsoft.AspNetCore.Hosting;
+﻿using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Logging;
 using NLog;
 using NLog.Web;
+using System;
+using System.IO;
+using System.Reflection;
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
 namespace KickStarter.ServiceLayer
