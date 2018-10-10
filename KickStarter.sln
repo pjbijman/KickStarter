@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library.Tests",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KickStarter.PresentationLayer", "KickStarter.PresentationLayer\KickStarter.PresentationLayer.csproj", "{08D72033-A302-444F-AAF5-BE6067729AE1}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KickStarter.ServiceLayer.Tests", "KickStarter.ServiceLayer.Tests\KickStarter.ServiceLayer.Tests.csproj", "{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{08D72033-A302-444F-AAF5-BE6067729AE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{08D72033-A302-444F-AAF5-BE6067729AE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{08D72033-A302-444F-AAF5-BE6067729AE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

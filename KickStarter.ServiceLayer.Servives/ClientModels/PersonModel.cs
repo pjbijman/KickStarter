@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
+﻿using KickStarter.Library.Entities;
 
 namespace KickStarter.ServiceLayer.Servives.ClientModels
 {
-    public class PersonModel
+    public class PersonModel : Person
     {
 
     }

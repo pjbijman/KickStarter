@@ -30,12 +30,12 @@ namespace KickStarter.ServiceLayer.Controllers.api
         public async Task<IActionResult> GetPersonById(int id)
         {
             var person = await _getPersonComponent.Value.Execute(id);
-            if(person== null)
+            if (person == null)
             {
                 return new StatusCodeResult(204);
             }
             var result = Mapper.Map<Person, PersonModel>(person);
-            return Ok(result) ;
+            return Ok(result);
         }
 
         public Task<IActionResult> GetPersons()
