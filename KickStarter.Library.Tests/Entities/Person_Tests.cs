@@ -32,6 +32,7 @@ namespace KickStarter.Library.Tests.Entities
             Assert.NotNull(person.UpdateDate);
             Assert.Null(person.Image);
             Assert.Null(person.Description);
+            Assert.True(person.FullName == string.Empty);
             Assert.Null(person.Error);
             Assert.True(person.IsValid == false);
         }

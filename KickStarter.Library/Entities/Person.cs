@@ -4,7 +4,7 @@
 // Created          : 03-09-2018
 //
 // Last Modified By : Peter Verver
-// Last Modified On : 03-09-2018
+// Last Modified On : 09-10-2018
 // ***********************************************************************
 // <copyright file="Person.cs" company="Scuba Service Software Development">
 //     Copyright ©  2018
@@ -22,14 +22,10 @@ using System.Xml.Serialization;
 
 namespace KickStarter.Library.Entities
 {
-    public class Person : BaseEntity, IPerson,  IIdentifiable
+    public class Person : BaseEntity, IPerson, IIdentifiable
     {
         #region Fields
 
-        /// <summary>
-        /// The _person identifier
-        /// </summary>
-        private Guid _id = Guid.NewGuid();
         /// <summary>
         /// The _first name
         /// </summary>
@@ -87,38 +83,11 @@ namespace KickStarter.Library.Entities
 
         #region Properties
 
-
-        /// <summary>
-        /// Gets or sets the person identifier.
-        /// </summary>
-        /// <value>The person identifier.</value>
-        [Required(ErrorMessage = "Person Id Required!")]
-        [DisplayName("Id")]
-        [XmlAttribute("Id")]
-        [DataMember]
-        public Guid Id
-        {
-            get
-            {
-                return _id;
-            }
-            set
-            {
-                if (_id != value)
-                {
-                    _id = value;
-                    OnPropertyChanged("Id");
-                }
-            }
-        }
-
         /// <summary>
         /// Gets or sets the first name.
         /// </summary>
         /// <value>The first name.</value>
         [Required(ErrorMessage = "First Name Required!")]
-        [DisplayName("First Name")]
-        [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
         [XmlAttribute("FirstName")]
         [DataMember]
@@ -142,8 +111,6 @@ namespace KickStarter.Library.Entities
         /// Gets or sets the name of the middle.
         /// </summary>
         /// <value>The name of the middle.</value>
-        [DisplayName("Middle Name")]
-        [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
         [XmlAttribute("MiddleName")]
         [DataMember]
@@ -167,8 +134,6 @@ namespace KickStarter.Library.Entities
         /// Gets or sets the insertion.
         /// </summary>
         /// <value>The insertion.</value>
-        [DisplayName("Insertion")]
-        [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
         [XmlAttribute("Insertion")]
         [DataMember]
@@ -193,8 +158,6 @@ namespace KickStarter.Library.Entities
         /// </summary>
         /// <value>The last name.</value>
         [Required(ErrorMessage = "Last Name Required!")]
-        [DisplayName("Last Name")]
-        [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
         [XmlAttribute("LastName")]
         [DataMember]
@@ -218,8 +181,6 @@ namespace KickStarter.Library.Entities
         /// Gets or sets the suffix.
         /// </summary>
         /// <value>The suffix.</value>
-        [DisplayName("Suffix")]
-        [DataType(DataType.Text)]
         [StringLength(50, ErrorMessage = "Maximum 50 characters are allowed.")]
         [XmlAttribute("Suffix")]
         [DataMember]
@@ -243,7 +204,6 @@ namespace KickStarter.Library.Entities
         /// Gets or sets the gender.
         /// </summary>
         /// <value>The gender.</value>
-        [DisplayName("Gender")]
         [XmlAttribute("Gender")]
         [DataMember]
         public Gender Gender
@@ -270,7 +230,6 @@ namespace KickStarter.Library.Entities
         [DisplayName("Date Of Birth")]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd-MM-yyyy}")]
         [XmlElement("DateOfBirth")]    //For nullable guid must be an XmlElement
-        [DataType(DataType.Date)]
         [DataMember]
         public DateTime? DateOfBirth
         {
@@ -293,7 +252,6 @@ namespace KickStarter.Library.Entities
         /// </summary>
         /// <value>The social segurity number.</value>
         [DisplayName("Social Segurity Number")]
-        [DataType(DataType.Text)]
         [XmlAttribute("SocialSegurityNumber")]
         [DataMember]
         public string SocialSegurityNumber
@@ -322,7 +280,8 @@ namespace KickStarter.Library.Entities
         {
             get
             {
-                return GetFullName();
+                string fullname = String.Format("{0} {1} {2}", (FirstName ?? null), (Insertion ?? null), (LastName ?? null));
+                return fullname.Replace("  ", " ").Trim();
             }
         }
 
@@ -330,7 +289,7 @@ namespace KickStarter.Library.Entities
         /// Gets or sets the image.
         /// </summary>
         /// <value>The image.</value>
-        [DisplayName("Image")]
+       // [DisplayName("Image")]
         [DataMember]
         public Byte[] Image
         {
@@ -345,7 +304,7 @@ namespace KickStarter.Library.Entities
             }
         }
 
-        [DisplayName("Description")]
+        //[DisplayName("Description")]
         [DataType(DataType.MultilineText)]
         [XmlAttribute("Description")]
         [DataMember]
@@ -365,20 +324,13 @@ namespace KickStarter.Library.Entities
             }
         }
 
-        int IIdentifiable.Id { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
+        int IIdentifiable.Id { get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person"); set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person"); }
 
         #endregion
 
-        private string GetFullName()
-        {
-            string fullname = String.Format("{0} {1} {2}", (FirstName ?? null), (Insertion ?? null), (LastName ?? null));
-
-            return fullname.Replace("  ", " ");
-        }
-
         public override string ToString()
         {
-            return GetFullName();
+            return FullName;
         }
     }
 }

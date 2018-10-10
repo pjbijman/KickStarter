@@ -1,5 +1,5 @@
 ﻿// ***********************************************************************
-// Assembly         : Bandmate.Library.Interfaces
+// Assembly         : KickStarter.Library.Interfaces
 // Author           : Peter Verver
 // Created          : 07-04-2017
 //
@@ -19,5 +19,6 @@ namespace KickStarter.Library.Interfaces
 {
     public interface IBaseEntity
     {
+        Guid Id { get; set; }
     }
 }

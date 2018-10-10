@@ -21,6 +21,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.Serialization;
 using System.Xml.Serialization;
 //using ValidationContext = AutoMapper.ValidationContext;
 
@@ -37,6 +38,7 @@ namespace KickStarter.Library.Entities
 
         #region Fields
 
+        private Guid _id = Guid.NewGuid();
         private DateTime _insertDate = DateTime.Now;
         private DateTime _updateDate = DateTime.Now;
         private Boolean _isValid;
@@ -59,6 +61,29 @@ namespace KickStarter.Library.Entities
         #endregion
 
         #region Properties
+
+        /// <summary>
+        /// Gets or sets the person identifier.
+        /// </summary>
+        /// <value>The person identifier.</value>
+        [Required(ErrorMessage = "Id Required!")]
+        [XmlAttribute("Id")]
+        [DataMember]
+        public Guid Id
+        {
+            get
+            {
+                return _id;
+            }
+            set
+            {
+                if (_id != value)
+                {
+                    _id = value;
+                    OnPropertyChanged("Id");
+                }
+            }
+        }
 
         [NotMapped]
         public Boolean IsValid
