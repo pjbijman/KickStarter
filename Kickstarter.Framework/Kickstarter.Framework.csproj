@@ -2,6 +2,8 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <Authors>Peter Verver</Authors>
+    <Company>SSSD</Company>
   </PropertyGroup>
 
   <ItemGroup>
