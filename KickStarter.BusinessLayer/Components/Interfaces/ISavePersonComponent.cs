@@ -1,8 +1,10 @@
-﻿namespace KickStarter.BusinessLayer.Components.Interfaces
+﻿using System.Threading.Tasks;
+
+namespace KickStarter.BusinessLayer.Components.Interfaces
 {
     public interface ISavePersonComponent
     {
-        Library.Entities.Person Execute(Library.Entities.Person person);
+        Task<Library.Entities.Person> SavePerson(Library.Entities.Person person);
     }
 
 }

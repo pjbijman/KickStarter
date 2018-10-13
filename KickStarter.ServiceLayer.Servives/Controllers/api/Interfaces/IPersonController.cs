@@ -1,8 +1,6 @@
 ﻿using KickStarter.ServiceLayer.Servives.ClientModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace KickStarter.ServiceLayer.Controllers.api.Interfaces
@@ -10,9 +8,13 @@ namespace KickStarter.ServiceLayer.Controllers.api.Interfaces
 
     public interface IPersonController
     {
-        Task<IActionResult> GetPersons();
+        Task<IActionResult> GetPersonsAsync();
 
-        Task<IActionResult> GetPersonById(int personId);
+        Task<IActionResult> GetPersonById(Guid personId);
+
+        Task<IActionResult> SavePerson([FromBody] PersonModel personSave);
+
+        Task<IActionResult> DeletePerson(Guid personId);
 
     }
 }

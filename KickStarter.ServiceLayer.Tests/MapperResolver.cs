@@ -3,6 +3,7 @@ using System;
 
 namespace KickStarter.ServiceLayer.Tests
 {
+
     public class MapperResolver
     {
         private static MapperResolver instance;

@@ -1,9 +1,11 @@
-﻿using KickStarter.Library.Entities;
+﻿using System;
+using System.Threading.Tasks;
+using KickStarter.Library.Entities;
 
 namespace KickStarter.DataLayer.DataRepositoryInterfaces
 {
-    public interface IPersonrRepository : IDataRepository<Person>
+    public interface IPersonsRepository : IDataRepository<Person>
     {
-
+        //Task GetByIdAsync(Guid personId);
     }
 }

@@ -1,6 +1,7 @@
 ﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
+using Kickstarter.BusinessLayer.DI;
 using KickStarter.ServiceLayer.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -9,7 +10,6 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
-using QuotationTool.BusinessLayer.DI;
 using Swashbuckle.AspNetCore.Swagger;
 using System;
 using System.Linq;
@@ -35,6 +35,8 @@ namespace KickStarter.ServiceLayer
         {
             // Add our Config object so it can be injected
             services.Configure<Appsettings>(Configuration);
+
+           // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase());
 
             // Add framework services.
             services.AddMvcCore(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })

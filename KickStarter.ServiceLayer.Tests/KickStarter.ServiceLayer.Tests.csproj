@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="4.8.1" />
     <PackageReference Include="AutoFixture.Xunit2" Version="4.5.0" />
     <PackageReference Include="AutoMapper" Version="7.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Http" Version="2.1.1" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj" />
     <ProjectReference Include="..\KickStarter.ServiceLayer.Servives\KickStarter.ServiceLayer.csproj" />
   </ItemGroup>
 

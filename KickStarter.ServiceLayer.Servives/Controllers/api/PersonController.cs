@@ -6,6 +6,7 @@ using KickStarter.ServiceLayer.Controllers.api.Interfaces;
 using KickStarter.ServiceLayer.Servives.ClientModels;
 using Microsoft.AspNetCore.Mvc;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace KickStarter.ServiceLayer.Controllers.api
@@ -13,23 +14,27 @@ namespace KickStarter.ServiceLayer.Controllers.api
     [Route("api/Person")]
     public class PersonController : BaseApiController, IPersonController
     {
-        private readonly Lazy<IReadOnlyRepository<Person>> _persosnRepository;
-        private readonly Lazy<IGetPersonComponent> _getPersonComponent;
+       // private readonly Lazy<IReadOnlyRepository<Person>> _persosnRepository;
+        private readonly Lazy<IGetPersonsComponent> _getPersonComponent;
         private readonly Lazy<ISavePersonComponent> _savePersonComponent;
+        private readonly Lazy<IDeletePersonComponent> _deletePersonComponent;
 
-        public PersonController(Lazy<IReadOnlyRepository<Person>> personRepository,
-            Lazy<IGetPersonComponent> getPersonComponent,
-            Lazy<ISavePersonComponent> savePersonComponent)
+        public PersonController(
+            //Lazy<IReadOnlyRepository<Person>> personRepository,
+            Lazy<IGetPersonsComponent> getPersonComponent,
+            Lazy<ISavePersonComponent> savePersonComponent,
+            Lazy<IDeletePersonComponent> deletePersonComponent)
         {
-            _persosnRepository = personRepository;
+           // _persosnRepository = personRepository;
             _getPersonComponent = getPersonComponent;
             _savePersonComponent = savePersonComponent;
+            _deletePersonComponent = deletePersonComponent;
         }
 
         [HttpGet("GetPersonById/{id:int}")]
-        public async Task<IActionResult> GetPersonById(int id)
+        public async Task<IActionResult> GetPersonById(Guid id)
         {
-            var person = await _getPersonComponent.Value.Execute(id);
+            var person = await _getPersonComponent.Value.GetPersonById(id);
             if (person == null)
             {
                 return new StatusCodeResult(204);
@@ -38,9 +43,46 @@ namespace KickStarter.ServiceLayer.Controllers.api
             return Ok(result);
         }
 
-        public Task<IActionResult> GetPersons()
+        [HttpGet("GetPersonsList")]
+        public async Task<IActionResult> GetPersonsAsync()
         {
-            throw new NotImplementedException();
+            var persons = await _getPersonComponent.Value.GetAllPersons();
+            if (persons == null)
+            {
+                return new StatusCodeResult(204);
+            }
+            if (persons.Count == 0)
+            {
+                return new NoContentResult();   // No content
+            }
+            var result = Mapper.Map<IList<Person>, IList<PersonModel>>(persons);
+            return Ok(result);
+        }
+
+        [HttpPost("SavePerson")]
+        public async Task<IActionResult> SavePerson([FromBody] PersonModel personSave)
+        {
+            var mappedPerson = Mapper.Map<PersonModel, Person>(personSave);
+            var savedPerson = await _savePersonComponent.Value.SavePerson(mappedPerson);
+            if (savedPerson == null)
+            {
+                return StatusCode(500);
+            }
+            var returnUser = await _getPersonComponent.Value.GetPersonById(savedPerson.Id);
+            var result = Mapper.Map<Person, PersonModel>(returnUser);
+            return Ok(result);
+        }
+
+        [HttpPost("DeletePerson")]
+        public async Task<IActionResult> DeletePerson(Guid personId)
+        {
+            var person = await _getPersonComponent.Value.GetPersonById(personId);
+            if (person == null)
+            {
+                return new StatusCodeResult(204);
+            }
+            var output = await _deletePersonComponent.Value.DeletePerson(person.Id);
+            return Ok();
         }
 
     }

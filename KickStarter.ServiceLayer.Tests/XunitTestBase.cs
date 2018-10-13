@@ -7,6 +7,7 @@ using System;
 
 namespace KickStarter.ServiceLayer.Tests
 {
+
     public class XunitTestBase : IDisposable
     {
         // Person
@@ -14,9 +15,9 @@ namespace KickStarter.ServiceLayer.Tests
         //protected readonly Lazy<IGetPersonComponent> _getPersonComponent = new Lazy<IGetPersonComponent>();
 
         protected readonly Mock<IReadOnlyRepository<Person>> _persosnRepository = new Mock<IReadOnlyRepository<Person>>();
-        protected readonly Mock<IGetPersonComponent> _getPersonComponent = new Mock<IGetPersonComponent>();
+        protected readonly Mock<IGetPersonsComponent> _getPersonComponent = new Mock<IGetPersonsComponent>();
         protected readonly Mock<ISavePersonComponent> _savePersonComponent=new Mock<ISavePersonComponent>();
-
+        protected readonly Mock<IDeletePersonComponent> _deletePersonComponent = new Mock<IDeletePersonComponent>();
 
         // Controllers
         public PersonController personController;
@@ -27,9 +28,12 @@ namespace KickStarter.ServiceLayer.Tests
             var mp = MapperResolver.Instance;
 
             //Init the Controller(s)
-            personController = new PersonController(new Lazy<IReadOnlyRepository<Person>>(_persosnRepository.Object),
-                new Lazy<IGetPersonComponent>(_getPersonComponent.Object),
-                new Lazy<ISavePersonComponent>(_savePersonComponent.Object));
+            personController = new PersonController(
+               // new Lazy<IReadOnlyRepository<Person>>(_persosnRepository.Object),
+                new Lazy<IGetPersonsComponent>(_getPersonComponent.Object),
+                new Lazy<ISavePersonComponent>(_savePersonComponent.Object),
+                new Lazy<IDeletePersonComponent>(_deletePersonComponent.Object)
+                );
         }
 
         public void Dispose()
