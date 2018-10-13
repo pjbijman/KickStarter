@@ -15,7 +15,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Kickstarter.Framework\Kickstarter.Framework.csproj" />
+    <ProjectReference Include="..\Kickstarter.Framework\KickStarter.Framework.csproj" />
     <ProjectReference Include="\\mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library\KickStarter.Library.csproj" />
   </ItemGroup>
 

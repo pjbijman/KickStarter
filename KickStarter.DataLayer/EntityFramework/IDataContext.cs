@@ -3,7 +3,7 @@ using KickStarter.Library.Entities;
 
 namespace KickStarter.DataLayer.EntityFramework
 {
-    internal interface IDataContext
+    public interface IDataContext
     {
         DbSet<Person> Persons { get; set; }
     }

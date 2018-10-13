@@ -6,6 +6,11 @@ namespace KickStarter.DataLayer.EntityFramework
 {
     public partial class DataContext : DbContext, IDataContext
     {
+        public DataContext()
+        {
+            Database.EnsureDeleted();
+            Database.EnsureCreated();
+        }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {

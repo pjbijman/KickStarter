@@ -9,7 +9,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.BusinessLayer",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.DataLayer", "KickStarter.DataLayer\KickStarter.DataLayer.csproj", "{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kickstarter.Framework", "Kickstarter.Framework\Kickstarter.Framework.csproj", "{B93F1570-B770-4957-B2F7-F8DCC10CAA60}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Framework", "Kickstarter.Framework\KickStarter.Framework.csproj", "{B93F1570-B770-4957-B2F7-F8DCC10CAA60}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library", "\\Mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library\KickStarter.Library.csproj", "{FE60520F-6507-40AA-A8DF-23C4A53D267A}"
 EndProject

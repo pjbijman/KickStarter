@@ -324,7 +324,15 @@ namespace KickStarter.Library.Entities
             }
         }
 
-        int IIdentifiable.Id { get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person"); set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person"); }
+        #endregion
+
+        #region IIdentifiable
+
+        int IIdentifiable.Id
+        {
+            get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
+            set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
+        }
 
         #endregion
 

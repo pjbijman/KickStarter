@@ -11,6 +11,11 @@ namespace KickStarter.ServiceLayer
 {
     public class Program
     {
+        public Program()
+        {
+
+        }
+
         public static void Main(string[] args)
         {
             var logger = LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();

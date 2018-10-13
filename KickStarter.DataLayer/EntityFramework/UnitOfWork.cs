@@ -1,9 +1,8 @@
 ﻿using KickStarter.DataLayer.DI;
-using KickStarter.DataLayer.EntityFramework;
 using System;
 using System.Threading.Tasks;
 
-namespace QuotationTool.DataLayer.EntityFramework
+namespace KickStarter.DataLayer.EntityFramework
 {
     public class UnitOfWork : IUnitOfWork
     {

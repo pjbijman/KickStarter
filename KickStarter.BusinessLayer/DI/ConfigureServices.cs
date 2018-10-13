@@ -2,7 +2,7 @@
 using Microsoft.Extensions.DependencyInjection;
 using KickStarter.DataLayer.DI;
 
-namespace QuotationTool.BusinessLayer.DI
+namespace Kickstarter.BusinessLayer.DI
 {
     public static class ConfigureServices
     {
