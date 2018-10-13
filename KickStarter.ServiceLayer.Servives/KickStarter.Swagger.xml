@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KickStarter.ServiceLayer</name>
+    </assembly>
+    <members>
+        <member name="M:KickStarter.ServiceLayer.Controllers.api.PersonController.GetPersonById(System.Guid)">
+            <summary>
+            Fetches a Person by its Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Controllers.api.PersonController.GetPersonsAsync">
+            <summary>
+            Fetches a list of all Persons
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Controllers.api.PersonController.SavePerson(KickStarter.ServiceLayer.Servives.ClientModels.PersonModel)">
+            <summary>
+            Saves a Personn to the repository.
+            </summary>
+            <param name="personSave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Controllers.api.PersonController.DeletePerson(System.Guid)">
+            <summary>
+            Deletes a person from the repository.
+            </summary>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Helpers.ApiExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+                Catches the exceptions from api requests
+            </summary>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Helpers.Utils.GetErrorMessage(System.Exception,System.Boolean)">
+            <summary>
+                Returns a string containing all errormessages for the specified exception and its inner exceptions
+            </summary>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Helpers.Utils.GetErrorMessage(System.Exception)">
+            <summary>
+                Returns a string containing all type- message and stacktrace info for the specified exception and its inner
+                exceptions
+            </summary>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Helpers.Utils.ConvertToBytes(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+                Converts IFormFile to bytearray
+            </summary>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Helpers.Utils.GetErrorMessage(System.Exception,System.Boolean,System.Text.StringBuilder@)">
+            <summary>
+                Loops through all inner Exceptions and assembles the error text in a stringbuilder
+            </summary>
+        </member>
+    </members>
+</doc>

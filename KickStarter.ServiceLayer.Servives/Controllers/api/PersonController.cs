@@ -31,6 +31,11 @@ namespace KickStarter.ServiceLayer.Controllers.api
             _deletePersonComponent = deletePersonComponent;
         }
 
+        /// <summary>
+        /// Fetches a Person by its Id.
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns></returns>
         [HttpGet("GetPersonById/{id:int}")]
         public async Task<IActionResult> GetPersonById(Guid id)
         {
@@ -43,6 +48,10 @@ namespace KickStarter.ServiceLayer.Controllers.api
             return Ok(result);
         }
 
+        /// <summary>
+        /// Fetches a list of all Persons
+        /// </summary>
+        /// <returns></returns>
         [HttpGet("GetPersonsList")]
         public async Task<IActionResult> GetPersonsAsync()
         {
@@ -59,6 +68,11 @@ namespace KickStarter.ServiceLayer.Controllers.api
             return Ok(result);
         }
 
+        /// <summary>
+        /// Saves a Personn to the repository.
+        /// </summary>
+        /// <param name="personSave"></param>
+        /// <returns></returns>
         [HttpPost("SavePerson")]
         public async Task<IActionResult> SavePerson([FromBody] PersonModel personSave)
         {
@@ -73,6 +87,11 @@ namespace KickStarter.ServiceLayer.Controllers.api
             return Ok(result);
         }
 
+        /// <summary>
+        /// Deletes a person from the repository.
+        /// </summary>
+        /// <param name="personId"></param>
+        /// <returns></returns>
         [HttpPost("DeletePerson")]
         public async Task<IActionResult> DeletePerson(Guid personId)
         {

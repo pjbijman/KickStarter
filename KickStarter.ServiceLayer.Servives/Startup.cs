@@ -36,7 +36,7 @@ namespace KickStarter.ServiceLayer
             // Add our Config object so it can be injected
             services.Configure<Appsettings>(Configuration);
 
-           // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase());
+            // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase());
 
             // Add framework services.
             services.AddMvcCore(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })
@@ -73,7 +73,13 @@ namespace KickStarter.ServiceLayer
             app.UseSwagger();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
-            app.UseSwaggerUI(c => { c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1"); });
+            var xmlPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\KickStarter.Swagger.xml";
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1");
+                //c.IncludeXmlComments(xmlPath);
+            });
 
             if (env.IsDevelopment())
             {
@@ -83,10 +89,7 @@ namespace KickStarter.ServiceLayer
 
             app.UseStaticFiles();
 
-            var backendRoutes = new[]
-            {
-                        "/api/"
-                    };
+            var backendRoutes = new[] { "/api/" };
 
             // Route all angular routes back to the root
             app.Use(async (context, next) =>
