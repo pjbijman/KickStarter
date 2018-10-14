@@ -2,6 +2,7 @@
 using KickStarter.DataLayer.DI;
 using KickStarter.Library.Entities;
 using KickStarter.ServiceLayer.Controllers.api;
+using KickStarter.ServiceLayer.Tests.Resolvers;
 using Moq;
 using System;
 

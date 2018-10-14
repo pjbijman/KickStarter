@@ -1,4 +1,5 @@
 ﻿using KickStarter.ServiceLayer.Controllers.api;
+using KickStarter.ServiceLayer.Tests.Resolvers;
 using System;
 
 namespace KickStarter.ServiceLayer.Tests

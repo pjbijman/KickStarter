@@ -2,7 +2,7 @@
 
 using System;
 
-namespace KickStarter.ServiceLayer.Tests
+namespace KickStarter.ServiceLayer.Tests.Resolvers
 {
     public class AutofacResolver
     {
