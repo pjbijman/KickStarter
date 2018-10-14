@@ -5,16 +5,20 @@ using AutoMapper;
 
 namespace KickStarter.ServiceLayer
 {
-    public class AutoMapperConfiguration
-    {
-        public static void Configure()
-        {
-            Mapper.Initialize(x =>
-            {
-                x.AddProfile<ClientModelToEntityMappingProfile>();
-            });
+    //public class AutoMapperConfiguration
+    //{
+    //    /// <summary>
+    //    /// AutoMapper custon configuration
+    //    /// </summary>
+    //    public static void Configure()
+    //    {
+           
+    //        Mapper.Initialize(x =>
+    //        {
+    //            x.AddProfile<ClientModelToEntityMappingProfile>();
+    //        });
 
-            Mapper.Configuration.AssertConfigurationIsValid();
-        }
-    }
+    //        Mapper.Configuration.AssertConfigurationIsValid();
+    //    }
+    //}
 }

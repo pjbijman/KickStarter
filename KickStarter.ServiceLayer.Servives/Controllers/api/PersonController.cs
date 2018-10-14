@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using KickStarter.BusinessLayer.Components.Interfaces;
-using KickStarter.DataLayer.DI;
 using KickStarter.Library.Entities;
 using KickStarter.ServiceLayer.Controllers.api.Interfaces;
 using KickStarter.ServiceLayer.Servives.ClientModels;

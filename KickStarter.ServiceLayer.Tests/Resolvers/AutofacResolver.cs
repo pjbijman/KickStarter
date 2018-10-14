@@ -31,7 +31,7 @@ namespace KickStarter.ServiceLayer.Tests.Resolvers
                     var builder = new ContainerBuilder();
 
                     builder.RegisterModule(new Kickstarter.BusinessLayer.DI.AutoFacModule());
-                    builder.RegisterModule(new DataLayer.DI.AutoFacModule());
+                    //builder.RegisterModule(new DataLayer.DI.AutoFacModule());
 
                     builder.RegisterType<DataLayer.EntityFramework.UnitOfWork>().As<DataLayer.DI.IUnitOfWork>();
                     builder.RegisterType<DataLayer.EntityFramework.DataContext>().As<DataLayer.EntityFramework.IDataContext>();

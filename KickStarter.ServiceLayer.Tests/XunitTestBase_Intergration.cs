@@ -5,11 +5,11 @@ namespace KickStarter.ServiceLayer.Tests
 {
     public class XunitTestBase_Intergration : IDisposable
     {
-        public ClientResolver cl;
+        public ClientResolver clientResolver;
 
         public XunitTestBase_Intergration()
         {
-            var cl = ClientResolver.Instance;
+            clientResolver = ClientResolver.Instance;
         }
 
         public void Dispose()

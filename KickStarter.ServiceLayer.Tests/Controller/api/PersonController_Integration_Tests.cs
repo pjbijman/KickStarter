@@ -1,4 +1,5 @@
 ﻿using KickStarter.ServiceLayer.Tests.Helpers;
+using KickStarter.ServiceLayer.Tests.Resolvers;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,10 +12,10 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
     {
 
         [Fact]
-        public async Task Can_Service_Build_client()
+        public  void Can_Service_Build_client()
         {
             //Todo: finish test
-            //var client = new TestClientProvider().Client;
+            var client =  ClientResolver.Instance;
 
             // var respons = await client.GetAsync("api/Person/GetPersonsList");
             Assert.True(true);

@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using KickStarter.BusinessLayer.Components.Interfaces;
+using KickStarter.BusinessLayer.Components.Person;
 
 namespace KickStarter.BusinessLayer.Components
 {
@@ -6,12 +8,9 @@ namespace KickStarter.BusinessLayer.Components
     {
         public BusinessLayerMappingProfile()
         {
-            //CreateMap<LifeguardBrigade, LifeguardBrigadeTreeItem>()
-            //    .ForMember(dest => dest.ChildLifeguardBrigades, opt => opt.Ignore());
-
-            //CreateMap<GlobalDocument, GlobalDocumentInfo>()
-            //    .ReverseMap()
-            //    .ForMember(dest => dest.File, opt => opt.Ignore());
+            CreateMap<DeletePersonComponent, IDeletePersonComponent>();
+            CreateMap<DeletePersonComponent, IGetPersonsComponent>();
+            CreateMap<SavePersonComponent, ISavePersonComponent>();
         }
     }
 }
