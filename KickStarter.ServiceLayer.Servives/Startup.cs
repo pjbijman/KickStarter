@@ -16,6 +16,9 @@ using System.Linq;
 
 namespace KickStarter.ServiceLayer
 {
+    /// <summary>
+    /// Startup of the application
+    /// </summary>
     public class Startup
     {
         public Startup(IHostingEnvironment env)
@@ -30,7 +33,11 @@ namespace KickStarter.ServiceLayer
 
         public IConfigurationRoot Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to add services to the container.
+        /// </summary>
+        /// <param name="services"></param>
+        /// <returns></returns>
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
             // Add our Config object so it can be injected
@@ -46,16 +53,19 @@ namespace KickStarter.ServiceLayer
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                 });
 
-            // Register the Swagger generator, defining one or more Swagger documents
-            services.AddSwaggerGen(option => { option.SwaggerDoc("v1", new Info { Title = "KickStarter API", Version = "v1" }); });
-
+            //AutoMapperConfiguration.Configure();
             services.AddAutoMapper();
-
-            AutoMapperConfiguration.Configure();
-
             Mapper.AssertConfigurationIsValid();
 
+            services.AddHttpContextAccessor();
+
             services.ConfigureBusinessLayerServices(Configuration);
+            //var opt= Swashbuckle.AspNetCore.SwaggerGen.SwaggerGenOptions.CreateSwaggerProvider(IServiceProvider serviceProvider);
+            // Register the Swagger generator, defining one or more Swagger documents
+
+           // services.ConfigureSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Version = "V1", Title = "KickStarter API" }); });
+           
+
 
             // Autofac
             var builder = new ContainerBuilder();
@@ -66,20 +76,25 @@ namespace KickStarter.ServiceLayer
             return new AutofacServiceProvider(applicationContainer);
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// <summary>
+        /// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+        /// </summary>
+        /// <param name="app"></param>
+        /// <param name="env"></param>        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
-            app.UseSwagger();
+            //app.UseSwagger();
+            //app.UseSwaggerUI();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             var xmlPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\KickStarter.Swagger.xml";
 
-            app.UseSwaggerUI(c =>
-            {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1");
-                //c.IncludeXmlComments(xmlPath);
-            });
+            //app.UseSwaggerUI(c =>
+            //{
+            //    c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1");
+            //    //c.IncludeXmlComments(xmlPath);
+            //});
 
             if (env.IsDevelopment())
             {

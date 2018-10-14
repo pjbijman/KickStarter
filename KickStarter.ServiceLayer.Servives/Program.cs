@@ -5,7 +5,6 @@ using NLog.Web;
 using System;
 using System.IO;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 using LogLevel = Microsoft.Extensions.Logging.LogLevel;
 
@@ -13,20 +12,20 @@ namespace KickStarter.ServiceLayer
 {
     public class Program
     {
-        static readonly int SW_SHOW = 5;
-        static readonly int SW_HIDE = 0;
+        //static readonly int SW_SHOW = 5;
+        //static readonly int SW_HIDE = 0;
 
-        [DllImport("user32.dll")]
-        static extern Boolean ShowWindow(IntPtr hWnd, int cmdShow);
-        [DllImport("kernel32.dll")]
-        static extern IntPtr GetConsoleWindow();
+        //[DllImport("user32.dll")]
+        //static extern Boolean ShowWindow(IntPtr hWnd, int cmdShow);
+        //[DllImport("kernel32.dll")]
+        //static extern IntPtr GetConsoleWindow();
 
         public static void Main(string[] args)
         {
             var logger = LogManager.LoadConfiguration("nlog.config").GetCurrentClassLogger();
 
-            IntPtr myWindow = GetConsoleWindow();
-            ShowWindow(myWindow, SW_SHOW);
+            //IntPtr myWindow = GetConsoleWindow();
+            //ShowWindow(myWindow, SW_SHOW);
 
             try
             {

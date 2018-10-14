@@ -36,6 +36,26 @@
                 Catches the exceptions from api requests
             </summary>
         </member>
+        <member name="T:KickStarter.ServiceLayer.Helpers.Appsettings">
+            <summary>
+            Application setiings storage
+            </summary>
+        </member>
+        <member name="P:KickStarter.ServiceLayer.Helpers.Appsettings.ConnectionStrings">
+            <summary>
+            Stores the connection string.
+            </summary>
+        </member>
+        <member name="T:KickStarter.ServiceLayer.Helpers.ConnectionStrings">
+            <summary>
+            Connection string storage.
+            </summary>
+        </member>
+        <member name="P:KickStarter.ServiceLayer.Helpers.ConnectionStrings.DefaultConnection">
+            <summary>
+            Stores the default connection.
+            </summary>
+        </member>
         <member name="M:KickStarter.ServiceLayer.Helpers.Utils.GetErrorMessage(System.Exception,System.Boolean)">
             <summary>
                 Returns a string containing all errormessages for the specified exception and its inner exceptions
@@ -56,6 +76,25 @@
             <summary>
                 Loops through all inner Exceptions and assembles the error text in a stringbuilder
             </summary>
+        </member>
+        <member name="T:KickStarter.ServiceLayer.Startup">
+            <summary>
+            Startup of the application
+            </summary>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.ServiceLayer.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>        
         </member>
     </members>
 </doc>
