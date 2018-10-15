@@ -1,5 +1,4 @@
 ﻿using Autofac;
-
 using System;
 
 namespace KickStarter.ServiceLayer.Tests.Resolvers
@@ -38,7 +37,7 @@ namespace KickStarter.ServiceLayer.Tests.Resolvers
 
                     builder.RegisterType<BusinessLayer.Components.BusinessComponent>().As<BusinessLayer.Components.Interfaces.IBusinessComponent>();
 
-                    builder.RegisterType<ServiceLayer.Controllers.api.PersonController>().As<ServiceLayer.Controllers.api.Interfaces.IPersonController>();
+                    builder.RegisterType<KickStartrer.Service.Controllers.api.PersonController>().As<KickStartrer.Service.Controllers.api.Interfaces.IPersonController>();
                     builder.RegisterType<BusinessLayer.Components.Person.SavePersonComponent>().As<BusinessLayer.Components.Interfaces.ISavePersonComponent>();
                     builder.RegisterType<BusinessLayer.Components.Person.GetPersonsComponent>().As<BusinessLayer.Components.Interfaces.IGetPersonsComponent>();
                     builder.RegisterType<BusinessLayer.Components.Person.DeletePersonComponent>().As<BusinessLayer.Components.Interfaces.IDeletePersonComponent>();

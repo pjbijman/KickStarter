@@ -50,7 +50,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
         }
 
         [Theory]
-        [InlineData(-1)]
+        [InlineData(-1)] 
         public async Task GetAllPersons_Should_return_StatusCodeResult_204_when_no_records_found(int type)
         {
             //Setup

@@ -8,13 +8,13 @@ namespace KickStarter.DataLayer.EntityFramework
     {
         public DataContext()
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 
         public DataContext(DbContextOptions<DataContext> options) : base(options)
         {
-            Database.EnsureDeleted();
+            //Database.EnsureDeleted();
             Database.EnsureCreated();
         }
 

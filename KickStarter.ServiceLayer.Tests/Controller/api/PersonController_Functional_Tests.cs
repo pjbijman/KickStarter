@@ -1,9 +1,4 @@
-﻿
-using Autofac;
-using KickStarter.DataLayer.DI;
-using KickStarter.ServiceLayer.Controllers.api.Interfaces;
-using KickStarter.ServiceLayer.Tests.Helpers;
-using Xunit;
+﻿using Xunit;
 
 namespace KickStarter.ServiceLayer.Tests.Controller.api
 {

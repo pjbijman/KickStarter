@@ -1,5 +1,5 @@
-﻿using KickStarter.ServiceLayer.Controllers.api;
-using KickStarter.ServiceLayer.Tests.Resolvers;
+﻿using KickStarter.ServiceLayer.Tests.Resolvers;
+using KickStartrer.Service.Controllers.api;
 using System;
 
 namespace KickStarter.ServiceLayer.Tests

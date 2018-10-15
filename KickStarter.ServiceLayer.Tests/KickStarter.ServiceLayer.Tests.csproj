@@ -30,7 +30,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj" />
-    <ProjectReference Include="..\KickStarter.ServiceLayer.Servives\KickStarter.ServiceLayer.csproj" />
+    <ProjectReference Include="..\KickStartrer.Service\KickStartrer.Service.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,8 +1,8 @@
 ﻿using KickStarter.BusinessLayer.Components.Interfaces;
 using KickStarter.DataLayer.DI;
 using KickStarter.Library.Entities;
-using KickStarter.ServiceLayer.Controllers.api;
 using KickStarter.ServiceLayer.Tests.Resolvers;
+using KickStartrer.Service.Controllers.api;
 using Moq;
 using System;
 

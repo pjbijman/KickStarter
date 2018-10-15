@@ -1,9 +1,8 @@
 ﻿using KickStarter.Library.Entities;
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
-using KickStarter.ServiceLayer.Servives.ClientModels;
+using KickStartrer.Service.ClientModels;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace KickStarter.ServiceLayer.Tests.Helpers
 {

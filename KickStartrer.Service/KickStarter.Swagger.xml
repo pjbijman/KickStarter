@@ -1,0 +1,119 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KickStartrer.Service</name>
+    </assembly>
+    <members>
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.#ctor(System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IGetPersonsComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.ISavePersonComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IDeletePersonComponent})">
+            <summary>
+            PersonController constructor
+            </summary>
+            <param name="getPersonComponent"></param>
+            <param name="savePersonComponent"></param>
+            <param name="deletePersonComponent"></param>
+        </member>
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.GetPersonById(System.Guid)">
+            <summary>
+            Fetches a Person by its Id.
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.GetPersonsAsync">
+            <summary>
+            Fetches a list of all Persons
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.SavePerson(KickStartrer.Service.ClientModels.PersonModel)">
+            <summary>
+            Saves a Personn to the repository.
+            </summary>
+            <param name="personSave"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.DeletePerson(System.Guid)">
+            <summary>
+            Deletes a person from the repository.
+            </summary>
+            <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStartrer.Service.Helpers.ApiExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">
+            <summary>
+                Catches the exceptions from api requests
+            </summary>
+        </member>
+        <member name="T:KickStartrer.Service.Helpers.Appsettings">
+            <summary>
+            Application setiings storage
+            </summary>
+        </member>
+        <member name="P:KickStartrer.Service.Helpers.Appsettings.ConnectionStrings">
+            <summary>
+            Stores the connection string.
+            </summary>
+        </member>
+        <member name="T:KickStartrer.Service.Helpers.ConnectionStrings">
+            <summary>
+            Connection string storage.
+            </summary>
+        </member>
+        <member name="P:KickStartrer.Service.Helpers.ConnectionStrings.DefaultConnection">
+            <summary>
+            Stores the default connection.
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.Helpers.Utils.GetErrorMessage(System.Exception,System.Boolean)">
+            <summary>
+                Returns a string containing all errormessages for the specified exception and its inner exceptions
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.Helpers.Utils.GetErrorMessage(System.Exception)">
+            <summary>
+                Returns a string containing all type- message and stacktrace info for the specified exception and its inner
+                exceptions
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.Helpers.Utils.ConvertToBytes(Microsoft.AspNetCore.Http.IFormFile)">
+            <summary>
+                Converts IFormFile to bytearray
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.Helpers.Utils.GetErrorMessage(System.Exception,System.Boolean,System.Text.StringBuilder@)">
+            <summary>
+                Loops through all inner Exceptions and assembles the error text in a stringbuilder
+            </summary>
+        </member>
+        <member name="T:KickStarter.Service.Startup">
+            <summary>
+            Startup of the application
+            </summary>
+        </member>
+        <member name="M:KickStarter.Service.Startup.#ctor(Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            Startpoint Application
+            </summary>
+            <param name="env"></param>
+        </member>
+        <member name="P:KickStarter.Service.Startup.Configuration">
+            <summary>
+            Holds the Configuration
+            </summary>
+        </member>
+        <member name="M:KickStarter.Service.Startup.ConfigureServices(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
+            <summary>
+            This method gets called by the runtime. Use this method to add services to the container.
+            </summary>
+            <param name="services"></param>
+            <returns></returns>
+        </member>
+        <member name="M:KickStarter.Service.Startup.Configure(Microsoft.AspNetCore.Builder.IApplicationBuilder,Microsoft.AspNetCore.Hosting.IHostingEnvironment)">
+            <summary>
+            This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+            </summary>
+            <param name="app"></param>
+            <param name="env"></param>        
+        </member>
+    </members>
+</doc>

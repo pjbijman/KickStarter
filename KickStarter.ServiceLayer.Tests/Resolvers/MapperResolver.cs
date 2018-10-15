@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using KickStartrer.Service;
 using System;
 
 namespace KickStarter.ServiceLayer.Tests.Resolvers
