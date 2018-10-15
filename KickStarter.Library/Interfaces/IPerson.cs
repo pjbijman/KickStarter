@@ -27,7 +27,7 @@ namespace KickStarter.Library.Interfaces
         /// Gets or sets the person identifier.
         /// </summary>
         /// <value>The person identifier.</value>
-        Guid Id { get; set; }
+        //Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the first name.
