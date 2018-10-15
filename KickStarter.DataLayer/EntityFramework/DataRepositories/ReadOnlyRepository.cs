@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 {
-    public class ReadOnlyRepository<T> : IReadOnlyRepository<T> where T : class, IIdentifiable
+    public class ReadOnlyRepository<T> : IReadOnlyRepository<T> where T : class  , IIdentifiable
     {
         public ReadOnlyRepository(DataContext dataContext)
         {

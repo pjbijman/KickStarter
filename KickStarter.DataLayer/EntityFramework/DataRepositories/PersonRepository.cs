@@ -1,4 +1,5 @@
 ﻿using KickStarter.DataLayer.DataRepositoryInterfaces;
+using KickStarter.Framework.Query;
 using KickStarter.Library.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,12 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         {
         }
 
-        public Task GetByIdAsync(Guid personId)
+        public Task<Person> GetByIdAsync(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Task<Person> GetByIdAsync(int id, QueryCriteria<Person> queryCriteria)
         {
             throw new NotImplementedException();
         }

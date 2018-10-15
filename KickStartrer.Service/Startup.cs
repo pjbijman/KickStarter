@@ -98,6 +98,7 @@ namespace KickStarter.Service
             app.UseSwaggerUI(c =>
             {
                 c.SwaggerEndpoint("/swagger/v1/swagger.json", "KickStarter API V1");
+                // ToDo: Add xml comments to swagger
                 //c.IncludeXmlComments(xmlPath);
             });
 
