@@ -20,5 +20,12 @@ namespace KickStarter.Library.Interfaces
     public interface IBaseEntity
     {
         Guid Id { get; set; }
+
+        Boolean IsValid { get; set; }
+
+        DateTime InsertDate { get; set; }
+
+        DateTime UpdateDate { get; set; }
+
     }
 }

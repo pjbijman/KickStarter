@@ -4,6 +4,77 @@
         <name>KickStartrer.Service</name>
     </assembly>
     <members>
+        <member name="T:KickStartrer.Service.ClientModels.PersonModel">
+            <summary>
+            Ckient person Model
+            </summary>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Id">
+            <summary>
+            Gets or sets the person identifier.
+            </summary>
+            <value>The person identifier.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.FirstName">
+            <summary>
+            Gets or sets the first name.
+            </summary>
+            <value>The first name.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.MiddleName">
+            <summary>
+            Gets or sets the name of the middle.
+            </summary>
+            <value>The name of the middle.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Insertion">
+            <summary>
+            Gets or sets the insertion.
+            </summary>
+            <value>The insertion.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.LastName">
+            <summary>
+            Gets or sets the last name.
+            </summary>
+            <value>The last name.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Suffix">
+            <summary>
+            Gets or sets the suffix.
+            </summary>
+            <value>The suffix.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Description">
+            <summary>
+            Gets or sets the Description.
+            </summary>
+            <value>The suffix.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Gender">
+            <summary>
+            Gets or sets the gender.
+            </summary>
+            <value>The gender.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.DateOfBirth">
+            <summary>
+            Gets or sets the date of birth.
+            </summary>
+            <value>The date of birth.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.SocialSegurityNumber">
+            <summary>
+            Gets or sets the social segurity number.
+            </summary>
+            <value>The social segurity number.</value>
+        </member>
+        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Image">
+            <summary>
+            Gets or sets the image.
+            </summary>
+            <value>The image.</value>
+        </member>
         <member name="M:KickStartrer.Service.Controllers.api.PersonController.#ctor(System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IGetPersonsComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.ISavePersonComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IDeletePersonComponent})">
             <summary>
             PersonController constructor
@@ -37,6 +108,20 @@
             Deletes a person from the repository.
             </summary>
             <param name="personId"></param>
+            <returns></returns>
+        </member>
+        <member name="T:KickStartrer.Service.Conversions.PersonModelToPersonTypeConverter">
+            <summary>
+            Converts a PersonModel to a person Object
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.Conversions.PersonModelToPersonTypeConverter.Convert(KickStartrer.Service.ClientModels.PersonModel,KickStarter.Library.Entities.Person,AutoMapper.ResolutionContext)">
+            <summary>
+            
+            </summary>
+            <param name="source"></param>
+            <param name="destination"></param>
+            <param name="context"></param>
             <returns></returns>
         </member>
         <member name="M:KickStartrer.Service.Helpers.ApiExceptionFilter.OnException(Microsoft.AspNetCore.Mvc.Filters.ExceptionContext)">

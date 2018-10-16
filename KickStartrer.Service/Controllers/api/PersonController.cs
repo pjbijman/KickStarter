@@ -79,9 +79,10 @@ namespace KickStartrer.Service.Controllers.api
         /// <param name="personSave"></param>
         /// <returns></returns>
         [HttpPost("SavePerson")]
-        public async Task<IActionResult> SavePerson(PersonModel personSave)
+        public async Task<IActionResult> SavePerson( PersonModel personSave)    //[FromBody]
         {
             var mappedPerson = Mapper.Map<PersonModel, Person>(personSave);
+            //Validate mapped Person
             var savedPerson = await _savePersonComponent.Value.SavePerson(mappedPerson);
             if (savedPerson == null)
             {
