@@ -75,6 +75,21 @@
             </summary>
             <value>The image.</value>
         </member>
+        <member name="T:KickStartrer.Service.ClientModelToEntityMappingProfile">
+            <summary>
+            Class for mapping profiles for Automapper.
+            </summary>
+        </member>
+        <member name="M:KickStartrer.Service.ClientModelToEntityMappingProfile.#ctor">
+            <summary>
+            Creates the mapping frofiles for Model to Entity
+            </summary>
+        </member>
+        <member name="T:KickStartrer.Service.Controllers.api.PersonController">
+            <summary>
+            Person AIP controller.
+            </summary>
+        </member>
         <member name="M:KickStartrer.Service.Controllers.api.PersonController.#ctor(System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IGetPersonsComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.ISavePersonComponent},System.Lazy{KickStarter.BusinessLayer.Components.Interfaces.IDeletePersonComponent})">
             <summary>
             PersonController constructor

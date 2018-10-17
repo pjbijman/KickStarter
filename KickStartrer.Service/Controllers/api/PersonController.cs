@@ -11,6 +11,9 @@ using System.Threading.Tasks;
 
 namespace KickStartrer.Service.Controllers.api
 {
+    /// <summary>
+    /// Person AIP controller.
+    /// </summary>
     [Route("api/Person")]
     public class PersonController : BaseApiController, IPersonController
     {

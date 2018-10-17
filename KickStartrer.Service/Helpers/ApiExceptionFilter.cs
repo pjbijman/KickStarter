@@ -21,8 +21,10 @@ namespace KickStartrer.Service.Helpers
         {
             Logger.LogError(Utils.GetErrorMessage(context.Exception));
 
-            var jsonResult = new JsonResult(new {error = context.Exception.Message});
-            jsonResult.StatusCode = (int) HttpStatusCode.InternalServerError;
+            var jsonResult = new JsonResult(new { error = context.Exception.Message })
+            {
+                StatusCode = (int)HttpStatusCode.InternalServerError
+            };
             context.Result = jsonResult;
         }
     }

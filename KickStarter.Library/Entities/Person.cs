@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 
 namespace KickStarter.Library.Entities
 {
-    public class Person : BaseEntity, IPerson, IIdentifiable
+    public class Person : BaseEntity, IPerson   //, IIdentifiable
     {
         #region Fields
 
@@ -326,15 +326,15 @@ namespace KickStarter.Library.Entities
 
         #endregion
 
-        #region IIdentifiable
+        //#region IIdentifiable
 
-        int IIdentifiable.Id
-        {
-            get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
-            set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
-        }
+        //int IIdentifiable.Id
+        //{
+        //    get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
+        //    set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
+        //}
 
-        #endregion
+        //#endregion
 
         public override string ToString()
         {

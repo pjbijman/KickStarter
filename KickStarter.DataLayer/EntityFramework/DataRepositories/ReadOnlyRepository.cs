@@ -1,6 +1,7 @@
 ﻿using Kickstarter.DataLayer.EntityFramework.Helpers;
 using KickStarter.DataLayer.DI;
 using KickStarter.Framework.Query;
+using KickStarter.Library.Entities;
 using KickStarter.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 {
-    public class ReadOnlyRepository<T> : IReadOnlyRepository<T> where T : class  , IIdentifiable
+    public class ReadOnlyRepository<T> : IReadOnlyRepository<T> where T : BaseEntity // , IIdentifiable
     {
         public ReadOnlyRepository(DataContext dataContext)
         {
@@ -33,7 +34,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
             return queryResult;
         }
 
-        public async Task<T> FindByIdAsync(int id)
+        public async Task<T> FindByIdAsync(Guid id)
         {
             var queryResult = await DataSet.AsNoTracking().Where(t => t.Id == id).FirstOrDefaultAsync();
 

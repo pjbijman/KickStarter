@@ -1,6 +1,7 @@
 ﻿using Kickstarter.DataLayer.EntityFramework.Helpers;
 using KickStarter.DataLayer.DI;
 using KickStarter.Framework.Query;
+using KickStarter.Library.Entities;
 using KickStarter.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 {
-    public class DataRepository<T> : IDataRepository<T> where T : class, IIdentifiable
+    public class DataRepository<T> : IDataRepository<T> where T : BaseEntity//, IIdentifiable
     {
         public DataRepository(DataContext dataContext)
         {
@@ -29,7 +30,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 
         public T AddOrUpdate(T entity)
         {
-            if (entity.Id > 0) return Update(entity);
+            if (entity.Id != Guid.Empty) return Update(entity);
 
             return Add(entity);
         }
@@ -50,12 +51,12 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
             return resultCount;
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public async Task<T> GetByIdAsync(Guid id)
         {
             return await GetByIdAsync(id, new QueryCriteria<T>());
         }
 
-        public async Task<T> GetByIdAsync(int id, QueryCriteria<T> queryCriteria)
+        public async Task<T> GetByIdAsync(Guid id, QueryCriteria<T> queryCriteria)
         {
             var dataSet = queryCriteria.AsNoTracking ? DataSet.AsNoTracking() : DataSet;
             var entity = await dataSet.Where(e => e.Id == id).ApplyQueryCriteria(queryCriteria).SingleOrDefaultAsync();
@@ -95,5 +96,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         public virtual void LoadRelatedEntities(QueryCriteria<T> queryCriteria)
         {
         }
+
+       
     }
 }
