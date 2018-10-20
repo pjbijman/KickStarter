@@ -57,7 +57,7 @@ namespace KickStarter.DataLayer.Map
             personTable.Property(b => b.Description).HasColumnType("nvarchar(max)");
             personTable.Property(e => e.Description)
                 .HasColumnName("Description")
-                .IsRequired();
+                .IsRequired(false);
             personTable.Property(b => b.UpdateDate).HasColumnType("datetime");
             personTable.Property(e => e.InsertDate)
                 .HasColumnName("InsertDate")

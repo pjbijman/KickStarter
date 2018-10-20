@@ -2,7 +2,6 @@
 using KickStarter.DataLayer.DI;
 using KickStarter.Framework.Query;
 using KickStarter.Library.Entities;
-using KickStarter.Library.Interfaces;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -10,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 {
-    public class DataRepository<T> : IDataRepository<T> where T : BaseEntity//, IIdentifiable
+    public class DataRepository<T> : IDataRepository<T> where T : BaseEntity
     {
         public DataRepository(DataContext dataContext)
         {
@@ -26,11 +25,15 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         public T Add(T entity)
         {
             return DataSet.Add(entity).Entity;
+
         }
 
         public T AddOrUpdate(T entity)
         {
-            if (entity.Id != Guid.Empty) return Update(entity);
+            // Check if exists
+            T chk = DataSet.Where(e => e.Id == entity.Id).FirstOrDefault();
+
+            if (chk != null) return Update(entity);
 
             return Add(entity);
         }
@@ -89,14 +92,12 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         public T Update(T entity)
         {
             var updatedEntity = DataSet.Update(entity);
-
+            DataContext.SaveChanges();//TODO: for testing check if neccesary
             return updatedEntity.Entity;
         }
 
         public virtual void LoadRelatedEntities(QueryCriteria<T> queryCriteria)
         {
         }
-
-       
     }
 }

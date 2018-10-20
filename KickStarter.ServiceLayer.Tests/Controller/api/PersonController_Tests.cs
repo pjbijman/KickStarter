@@ -108,8 +108,8 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
 
         [Theory]
-        [InlineData(-1)]
-        public async Task SaveUser_Should_Return_StatusCode_500_when_save_failed(int type)
+        [InlineData(1)]
+        public async Task SaveUser_Should_Return_OkObjectResult_when_save_successfull(int type)
         {
             //Setup
             _savePersonComponent.Setup(x => x.SavePerson(It.IsAny<Person>())).Returns(Task.FromResult(Dummies.GetDummiePerson(type)));
@@ -118,13 +118,13 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
             var result = await personController.SavePerson(Dummies.GetDummiePersonModel(type));
 
             ////Verify - Check for the same type
-            var expectedType = new StatusCodeResult(500).GetType();
+            var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
             Assert.True(expectedType.Equals(actualType));
 
             //Check if the execute was called at least once on the controller method
             _savePersonComponent.Verify(x => x.SavePerson(It.IsAny<Person>()), Times.Once);
-            _getPersonComponent.Verify(x => x.GetPersonById(It.IsAny<Guid>()), Times.Never);
+            _getPersonComponent.Verify(x => x.GetPersonById(It.IsAny<Guid>()), Times.Once);
         }
 
     }

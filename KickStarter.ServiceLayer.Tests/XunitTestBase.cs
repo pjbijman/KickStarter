@@ -12,9 +12,6 @@ namespace KickStarter.ServiceLayer.Tests
     public class XunitTestBase : IDisposable
     {
         // Person
-        //protected readonly Mock<IReadOnlyRepository<Person>> _personRepository = new Mock<IReadOnlyRepository<Person>>();
-        //protected readonly Lazy<IGetPersonComponent> _getPersonComponent = new Lazy<IGetPersonComponent>();
-
         protected readonly Mock<IReadOnlyRepository<Person>> _persosnRepository = new Mock<IReadOnlyRepository<Person>>();
         protected readonly Mock<IGetPersonsComponent> _getPersonComponent = new Mock<IGetPersonsComponent>();
         protected readonly Mock<ISavePersonComponent> _savePersonComponent=new Mock<ISavePersonComponent>();

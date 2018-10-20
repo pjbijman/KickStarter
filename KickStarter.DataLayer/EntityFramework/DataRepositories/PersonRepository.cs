@@ -22,7 +22,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         /// <returns></returns>
         public Task<Person> GetByIdAsync(Guid id)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
         }
 
         /// <summary>
@@ -33,7 +33,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         /// <returns></returns>
         public Task<Person> GetByIdAsync(Guid id, QueryCriteria<Person> queryCriteria)
         {
-            throw new NotImplementedException();
+            throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
         }
 
        

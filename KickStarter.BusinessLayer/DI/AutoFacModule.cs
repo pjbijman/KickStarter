@@ -1,12 +1,10 @@
 ﻿using Autofac;
-//using KickStarter.DataLayer.DataRepositoryInterfaces;
 using KickStarter.DataLayer.DI;
 using KickStarter.DataLayer.EntityFramework.DataRepositories;
 using System;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 
 namespace Kickstarter.BusinessLayer.DI
 {
@@ -23,7 +21,6 @@ namespace Kickstarter.BusinessLayer.DI
                 .AsImplementedInterfaces()
                 .InstancePerLifetimeScope();
 
-            //builder.RegisterGeneric(typeof(ServiceProvider<>)).As(typeof(System.IServiceProvider<>));
             builder.RegisterGeneric(typeof(ReadOnlyRepository<>)).As(typeof(IReadOnlyRepository<>));
             builder.RegisterGeneric(typeof(DataRepository<>)).As(typeof(IDataRepository<>));
         }

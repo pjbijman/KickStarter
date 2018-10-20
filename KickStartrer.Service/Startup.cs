@@ -2,6 +2,7 @@ using Autofac;
 using Autofac.Extensions.DependencyInjection;
 using AutoMapper;
 using Kickstarter.BusinessLayer.DI;
+using KickStarter.Library.Entities;
 using KickStartrer.Service.Helpers;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -63,7 +64,7 @@ namespace KickStarter.Service
             services.AddHttpContextAccessor();
 
             services.ConfigureBusinessLayerServices(Configuration);
-  
+
             //services.ConfigureSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Version = "V1", Title = "KickStarter API" }); });
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(option => { option.SwaggerDoc("v1", new Info { Title = "KickStarter API", Version = "v1" }); });
@@ -90,7 +91,7 @@ namespace KickStarter.Service
         {
             // Enable middleware to serve generated Swagger as a JSON endpoint.
             app.UseSwagger();
-           // app.UseSwaggerUI();
+            // app.UseSwaggerUI();
 
             // Enable middleware to serve swagger-ui (HTML, JS, CSS etc.), specifying the Swagger JSON endpoint.
             var xmlPath = System.AppDomain.CurrentDomain.BaseDirectory + @"\KickStarter.Swagger.xml";
@@ -128,6 +129,14 @@ namespace KickStarter.Service
             app.UseStaticFiles();
 
             app.UseStatusCodePagesWithReExecute("/httpstatus/{0}");
+
+            if (env.IsDevelopment())
+            {
+                //Import default data.
+                var import = new KickStarter_Testdata.Import(false,
+                                                    app.ApplicationServices.GetService <DataLayer.EntityFramework.DataContext>(),
+                                                    Configuration);
+            }
         }
     }
 }

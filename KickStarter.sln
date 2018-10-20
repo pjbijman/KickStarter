@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.ServiceLayer", "KickStarter.ServiceLayer.Servives\KickStarter.ServiceLayer.csproj", "{DC8D1781-DD98-4A72-9391-63159872252D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.BusinessLayer", "KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj", "{EAB9E919-3713-458F-BC66-3A2E87482905}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.DataLayer", "KickStarter.DataLayer\KickStarter.DataLayer.csproj", "{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}"
@@ -19,7 +17,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.PresentationLay
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.ServiceLayer.Tests", "KickStarter.ServiceLayer.Tests\KickStarter.ServiceLayer.Tests.csproj", "{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KickStartrer.Service", "KickStartrer.Service\KickStartrer.Service.csproj", "{012AAD08-1021-40EE-82C0-EE88F749E29C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStartrer.Service", "KickStartrer.Service\KickStartrer.Service.csproj", "{012AAD08-1021-40EE-82C0-EE88F749E29C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.BusinesLayer.Tests", "KickStarter.BusinesLayer.Tests\KickStarter.BusinesLayer.Tests.csproj", "{EE11CB2D-F882-4235-A2C0-A7CBFAFABB49}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KickStarter_Testdata", "KickStarter_Testdata\KickStarter_Testdata.csproj", "{24A02274-6757-4F11-9D47-BC9E0CFBC649}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,10 +29,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{DC8D1781-DD98-4A72-9391-63159872252D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{DC8D1781-DD98-4A72-9391-63159872252D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{DC8D1781-DD98-4A72-9391-63159872252D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{DC8D1781-DD98-4A72-9391-63159872252D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -62,6 +60,14 @@ Global
 		{012AAD08-1021-40EE-82C0-EE88F749E29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{012AAD08-1021-40EE-82C0-EE88F749E29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{012AAD08-1021-40EE-82C0-EE88F749E29C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE11CB2D-F882-4235-A2C0-A7CBFAFABB49}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE11CB2D-F882-4235-A2C0-A7CBFAFABB49}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE11CB2D-F882-4235-A2C0-A7CBFAFABB49}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE11CB2D-F882-4235-A2C0-A7CBFAFABB49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

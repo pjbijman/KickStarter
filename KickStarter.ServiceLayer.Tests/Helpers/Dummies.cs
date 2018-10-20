@@ -56,7 +56,7 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
             {
                 return new PersonModel
                 {
-                    //Id = Guid.NewGuid(),
+                    Id = Guid.NewGuid(),
                     DateOfBirth = DateTime.Now,
                     Description = "",
                     FirstName = "John",

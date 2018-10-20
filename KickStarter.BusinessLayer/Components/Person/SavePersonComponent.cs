@@ -10,7 +10,7 @@ namespace KickStarter.BusinessLayer.Components.Person
         private readonly IPersonsRepository _personRepository;
 
         public SavePersonComponent(
-            IUnitOfWork unitOfWork,
+           IUnitOfWork unitOfWork,
             IPersonsRepository repository)
             : base(unitOfWork)
         {

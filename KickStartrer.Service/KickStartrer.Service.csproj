@@ -34,6 +34,7 @@
     <ProjectReference Include="..\KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj" />
     <ProjectReference Include="..\KickStarter.DataLayer\KickStarter.DataLayer.csproj" />
     <ProjectReference Include="..\KickStarter.Library\KickStarter.Library.csproj" />
+    <ProjectReference Include="..\KickStarter_Testdata\KickStarter_Testdata.csproj" />
   </ItemGroup>
 
   <ItemGroup>
