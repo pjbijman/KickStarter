@@ -3,6 +3,7 @@ using KickStarter.BusinessLayer.Components.Interfaces;
 using KickStarter.Library.Entities;
 using KickStartrer.Service.ClientModels;
 using KickStartrer.Service.Controllers.api.Interfaces;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
 using System;
@@ -14,7 +15,7 @@ namespace KickStartrer.Service.Controllers.api
     /// <summary>
     /// Person AIP controller.
     /// </summary>
-    [Route("api/Person")]
+    [Route("api/[controller]")]
     public class PersonController : BaseApiController, IPersonController
     {
         private readonly Lazy<IGetPersonsComponent> _getPersonComponent;
@@ -52,8 +53,7 @@ namespace KickStartrer.Service.Controllers.api
                 return new StatusCodeResult(204);
             }
             var result = Mapper.Map<Person, PersonModel>(person);
-            //return Request.CreateResponse(HttpStatusCode.OK, result, System.Configuration.Formatters.JsonFormatter);
-            return Ok(JsonConvert.SerializeObject(result));
+            return Ok(result);
         }
 
         /// <summary>
@@ -73,7 +73,7 @@ namespace KickStartrer.Service.Controllers.api
                 return new NoContentResult();   // No content
             }
             var result = Mapper.Map<IList<Person>, IList<PersonModel>>(persons);
-            return Ok(JsonConvert.SerializeObject(result));
+            return Ok(result);
         }
 
         /// <summary>
@@ -82,7 +82,7 @@ namespace KickStartrer.Service.Controllers.api
         /// <param name="personSave"></param>
         /// <returns></returns>
         [HttpPost("SavePerson")]
-        public async Task<IActionResult> SavePerson( PersonModel personSave)    //[FromBody]
+         public async Task<IActionResult> SavePerson([FromBody] PersonModel personSave) 
         {
             var mappedPerson = Mapper.Map<PersonModel, Person>(personSave);
             //Validate mapped Person
@@ -91,15 +91,15 @@ namespace KickStartrer.Service.Controllers.api
             {
                 return StatusCode(500);
             }
-            var returnUser = await _getPersonComponent.Value.GetPersonById(savedPerson.Id);
-            var result = Mapper.Map<Person, PersonModel>(returnUser);
-            return Ok(JsonConvert.SerializeObject(result));
+            var returnPerson = await _getPersonComponent.Value.GetPersonById(savedPerson.Id);
+            var result = Mapper.Map<Person, PersonModel>(returnPerson);
+            return Ok(result);
         }
 
         /// <summary>
         /// Deletes a person from the repository.
         /// </summary>
-        /// <param name="personId"></param>
+        /// <param name="Id"></param>
         /// <returns></returns>
         [HttpDelete("DeletePerson/{id}")]
         public async Task<IActionResult> DeletePerson(Guid id)

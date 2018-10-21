@@ -69,12 +69,6 @@
             </summary>
             <value>The social segurity number.</value>
         </member>
-        <member name="P:KickStartrer.Service.ClientModels.PersonModel.Image">
-            <summary>
-            Gets or sets the image.
-            </summary>
-            <value>The image.</value>
-        </member>
         <member name="T:KickStartrer.Service.ClientModelToEntityMappingProfile">
             <summary>
             Class for mapping profiles for Automapper.
@@ -122,7 +116,7 @@
             <summary>
             Deletes a person from the repository.
             </summary>
-            <param name="personId"></param>
+            <param name="Id"></param>
             <returns></returns>
         </member>
         <member name="T:KickStartrer.Service.Conversions.PersonModelToPersonTypeConverter">

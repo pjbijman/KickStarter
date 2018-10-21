@@ -61,7 +61,7 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
                     Description = "",
                     FirstName = "John",
                     Gender = Gender.Male,
-                    Image = null,
+                    //Image = null,
                     LastName = "Doe",
                     MiddleName = "",
                     SocialSegurityNumber = "123.456.789",

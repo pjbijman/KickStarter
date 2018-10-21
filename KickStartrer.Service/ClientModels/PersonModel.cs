@@ -1,6 +1,4 @@
-﻿using KickStarter.Library.Entities;
-using KickStarter.Library.Enums.Bandmate.Library.Enums;
-using KickStarter.Library.Interfaces;
+﻿using KickStarter.Library.Enums.Bandmate.Library.Enums;
 using System;
 
 namespace KickStartrer.Service.ClientModels
@@ -70,11 +68,11 @@ namespace KickStartrer.Service.ClientModels
         /// <value>The social segurity number.</value>
         public string SocialSegurityNumber { get; set; }
 
-        /// <summary>
-        /// Gets or sets the image.
-        /// </summary>
-        /// <value>The image.</value>
-        public Byte[] Image { get; set; }
+        ///// <summary>
+        ///// Gets or sets the image.
+        ///// </summary>
+        ///// <value>The image.</value>
+        //public Byte[] Image { get; set; }
 
 
     }

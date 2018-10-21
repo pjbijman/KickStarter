@@ -32,7 +32,7 @@ namespace KickStartrer.Service.Conversions
             person.DateOfBirth = source.DateOfBirth;
             person.SocialSegurityNumber = source.SocialSegurityNumber;
             person.Description = source.Description;
-            person.Image = source.Image;
+            //person.Image = source.Image;
 
             return person;
         }
