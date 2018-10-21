@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <RootNamespace>KickStarter.PresentationLayer.Client</RootNamespace>
+    <AssemblyName>KickStarter.PresentationLayer.Client</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="dist\**" />
+    <Compile Remove="node_modules\**" />
+    <EmbeddedResource Remove="dist\**" />
+    <EmbeddedResource Remove="node_modules\**" />
+    <None Remove="dist\**" />
+    <None Remove="node_modules\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="src\app\shared\pipes\utc-to-local-date.pipe.ts" />
+    <None Remove="src\css\_happycheckbox.scss" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include=".angular-cli.json" />
+    <None Include=".editorconfig" />
+    <None Include=".gitignore" />
+    <None Include="karma.conf.js" />
+    <None Include="package.json" />
+    <None Include="protractor.conf.js" />
+    <None Include="proxy.conf.js" />
+    <None Include="proxy.conf.json" />
+    <None Include="README.md" />
+    <None Include="src\app\app-routing.module.ts" />
+    <None Include="src\app\app.component.html" />
+    <None Include="src\app\app.component.scss" />
+    <None Include="src\app\app.component.spec.ts" />
+    <None Include="src\app\app.component.ts" />
+    <None Include="src\app\app.module.ts" />
+    <None Include="src\app\not-found.component.ts" />
+    <None Include="src\app\rxjs-operators.ts" />
+    <None Include="src\app\shared\loading\loading.component.html" />
+    <None Include="src\app\shared\loading\loading.component.scss" />
+    <None Include="src\app\shared\loading\loading.component.ts" />
+    <None Include="src\app\shared\loading\loading.module.ts" />
+    <None Include="src\app\shared\loading\loading.service.ts" />
+    <None Include="src\app\shared\message\message.component.html" />
+    <None Include="src\app\shared\message\message.component.ts" />
+    <None Include="src\app\shared\message\message.model.ts" />
+    <None Include="src\app\shared\message\message.module.ts" />
+    <None Include="src\app\shared\message\message.service.ts" />
+    <None Include="src\app\shared\models\dropdown.model.ts" />
+    <None Include="src\app\shared\services\errorhandler.service.ts" />
+    <None Include="src\app\shared\services\map.service.ts" />
+    <None Include="src\assets\css\bootstrap-theme.css" />
+    <None Include="src\assets\css\bootstrap-theme.css.map" />
+    <None Include="src\assets\css\bootstrap-theme.min.css" />
+    <None Include="src\assets\css\bootstrap-theme.min.css.map" />
+    <None Include="src\assets\css\bootstrap.css" />
+    <None Include="src\assets\css\bootstrap.css.map" />
+    <None Include="src\assets\css\bootstrap.min.css" />
+    <None Include="src\assets\css\bootstrap.min.css.map" />
+    <None Include="src\assets\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="src\assets\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="src\assets\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="src\assets\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="src\assets\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="src\assets\images\loading.gif" />
+    <None Include="src\assets\images\logo.png" />
+    <None Include="src\assets\js\bootstrap.js" />
+    <None Include="src\assets\js\bootstrap.min.js" />
+    <None Include="src\assets\js\jquery-3.2.1.min.js" />
+    <None Include="src\assets\js\npm.js" />
+    <None Include="src\css\styles.scss" />
+    <None Include="src\css\_reset.scss" />
+    <None Include="src\css\_standard.scss" />
+    <None Include="src\environments\environment.prod.ts" />
+    <None Include="src\environments\environment.ts" />
+    <None Include="src\index.html" />
+    <None Include="src\main.ts" />
+    <None Include="src\polyfills.ts" />
+    <None Include="src\test.ts" />
+    <None Include="src\tsconfig.app.json" />
+    <None Include="src\tsconfig.spec.json" />
+    <None Include="src\typings.d.ts" />
+    <None Include="tsconfig.json" />
+    <None Include="tslint.json" />
+  </ItemGroup>
+
+</Project>
