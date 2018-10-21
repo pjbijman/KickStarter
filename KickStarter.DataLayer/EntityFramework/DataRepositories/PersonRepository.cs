@@ -15,26 +15,26 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         {
         }
 
-        /// <summary>
-        /// Fetches a Person by its Id async.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <returns></returns>
-        public Task<Person> GetByIdAsync(Guid id)
-        {
-            throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
-        }
+        ///// <summary>
+        ///// Fetches a Person by its Id async.
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <returns></returns>
+        //public Task<Person> GetByIdAsync(Guid id)
+        //{
+        //    throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
+        //}
 
-        /// <summary>
-        /// Fetches a person by its Id and criteria async.
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="queryCriteria"></param>
-        /// <returns></returns>
-        public Task<Person> GetByIdAsync(Guid id, QueryCriteria<Person> queryCriteria)
-        {
-            throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
-        }
+        ///// <summary>
+        ///// Fetches a person by its Id and criteria async.
+        ///// </summary>
+        ///// <param name="id"></param>
+        ///// <param name="queryCriteria"></param>
+        ///// <returns></returns>
+        //public Task<Person> GetByIdAsync(Guid id, QueryCriteria<Person> queryCriteria)
+        //{
+        //    throw new NotImplementedException("Implement PersonRepository.GetByIdAsync");
+        //}
 
        
     }

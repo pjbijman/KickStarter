@@ -34,11 +34,11 @@ namespace KickStarter.DataLayer.Map
                 .HasColumnName("LastName")
                 .IsRequired()
                 .HasMaxLength(50);
-            personTable.Property(b => b.Suffix).HasColumnType("nvarchar(50)");
+            personTable.Property(b => b.Suffix).HasColumnType("nvarchar(15)");
             personTable.Property(e => e.Suffix)
                 .HasColumnName("Suffix")
                 .IsRequired(false)
-                .HasMaxLength(50);
+                .HasMaxLength(15);
             personTable.Property(e => e.Gender)
                 .HasColumnName("Gender")
                 .IsRequired();
@@ -46,11 +46,11 @@ namespace KickStarter.DataLayer.Map
             personTable.Property(e => e.DateOfBirth)
                 .HasColumnName("DateOfBirth")
                 .IsRequired();
-            personTable.Property(b => b.SocialSegurityNumber).HasColumnType("nvarchar");
+            personTable.Property(b => b.SocialSegurityNumber).HasColumnType("nvarchar(15)");
             personTable.Property(e => e.SocialSegurityNumber)
                 .HasColumnName("SocialSegurityNumber")
                 .IsRequired(false)
-                .HasMaxLength(50);
+                .HasMaxLength(15);
             personTable.Property(e => e.Image)
                 .HasColumnName("Image")
                 .IsRequired(false);

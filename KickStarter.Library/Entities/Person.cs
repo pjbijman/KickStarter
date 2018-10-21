@@ -22,7 +22,7 @@ using System.Xml.Serialization;
 
 namespace KickStarter.Library.Entities
 {
-    public class Person : BaseEntity, IPerson   //, IIdentifiable
+    public class Person : BaseEntity, IPerson  
     {
         #region Fields
 
@@ -61,7 +61,7 @@ namespace KickStarter.Library.Entities
         /// <summary>
         /// The _image
         /// </summary>
-        private Byte[] _image;  // = Helpers.GetDummyImage();
+        private Byte[] _image = Helpers.Helpers.GetDummyImage();
         /// <summary>
         /// The Description
         /// </summary>
@@ -325,16 +325,6 @@ namespace KickStarter.Library.Entities
         }
 
         #endregion
-
-        //#region IIdentifiable
-
-        //int IIdentifiable.Id
-        //{
-        //    get => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
-        //    set => throw new NotImplementedException("IIdentifiable not set for KickStarter.Library.Entities.Person");
-        //}
-
-        //#endregion
 
         public override string ToString()
         {

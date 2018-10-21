@@ -54,12 +54,13 @@ namespace KickStarter.Service
             // services.AddDbContext<DataContext>(options => options.UseInMemoryDatabase());
 
             // Add framework services.
-            services.AddMvcCore(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })
+            services.AddMvc(properties => { properties.ModelBinderProviders.Insert(0, new JsonModelBinderProvider()); })
                 .AddJsonOptions(options =>
                 {
                     options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
                     options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
-                }).AddApiExplorer();
+                });
+
 
             services.AddHttpContextAccessor();
 
@@ -134,7 +135,7 @@ namespace KickStarter.Service
             {
                 //Import default data.
                 var import = new KickStarter_Testdata.Import(false,
-                                                    app.ApplicationServices.GetService <DataLayer.EntityFramework.DataContext>(),
+                                                    app.ApplicationServices.GetService<DataLayer.EntityFramework.DataContext>(),
                                                     Configuration);
             }
         }

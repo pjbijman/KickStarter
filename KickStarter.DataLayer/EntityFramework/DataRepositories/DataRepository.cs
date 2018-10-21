@@ -25,7 +25,6 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
         public T Add(T entity)
         {
             return DataSet.Add(entity).Entity;
-
         }
 
         public T AddOrUpdate(T entity)
@@ -91,8 +90,7 @@ namespace KickStarter.DataLayer.EntityFramework.DataRepositories
 
         public T Update(T entity)
         {
-            var updatedEntity = DataSet.Update(entity);
-            DataContext.SaveChanges();//TODO: for testing check if neccesary
+            var updatedEntity = DataSet.Update(entity);           
             return updatedEntity.Entity;
         }
 

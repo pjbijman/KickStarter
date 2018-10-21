@@ -30,7 +30,7 @@ namespace KickStarter.Library.Tests.Entities
             Assert.True(person.Gender == Gender.Male);
             Assert.NotNull(person.InsertDate);
             Assert.NotNull(person.UpdateDate);
-            Assert.Null(person.Image);
+            Assert.NotNull(person.Image);
             Assert.Null(person.Description);
             Assert.True(person.FullName == string.Empty);
             Assert.Null(person.Error);
