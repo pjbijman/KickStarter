@@ -1,0 +1,7 @@
+<section id="message-container">
+	<alert *ngFor="let message of messageService?.messages;let i = index; let intLast = last;" [type]="message.type" dismissible="true" (close)="closeMessage(i)">
+		<div [innerHTML]="message?.message">
+		</div>
+		{{lastObserver.next(intLast)}}
+	</alert>
+</section>
