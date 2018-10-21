@@ -22,6 +22,7 @@ using System.Xml.Serialization;
 
 namespace KickStarter.Library.Entities
 {
+    [Serializable()]
     public class Person : BaseEntity, IPerson  
     {
         #region Fields

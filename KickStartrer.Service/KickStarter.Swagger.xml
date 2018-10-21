@@ -116,7 +116,7 @@
             <summary>
             Deletes a person from the repository.
             </summary>
-            <param name="Id"></param>
+            <param name="id"></param>
             <returns></returns>
         </member>
         <member name="T:KickStartrer.Service.Conversions.PersonModelToPersonTypeConverter">

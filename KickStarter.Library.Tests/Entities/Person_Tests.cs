@@ -343,7 +343,7 @@ namespace KickStarter.Library.Tests.Entities
             Assert.True(person.Gender == Gender.Male);
             Assert.NotNull(person.InsertDate);
             Assert.NotNull(person.UpdateDate);
-            Assert.Null(person.Image);
+            Assert.NotNull(person.Image);
             Assert.Null(person.Description);
             Assert.Null(person.Error);
             Assert.True(person.IsValid == false);

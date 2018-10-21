@@ -99,7 +99,7 @@ namespace KickStartrer.Service.Controllers.api
         /// <summary>
         /// Deletes a person from the repository.
         /// </summary>
-        /// <param name="Id"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
         [HttpDelete("DeletePerson/{id}")]
         public async Task<IActionResult> DeletePerson(Guid id)

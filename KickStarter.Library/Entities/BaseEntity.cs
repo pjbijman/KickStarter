@@ -20,13 +20,12 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
-using System.Reflection;
 using System.Runtime.Serialization;
 using System.Xml.Serialization;
-//using ValidationContext = AutoMapper.ValidationContext;
 
 namespace KickStarter.Library.Entities
 {
+    [Serializable()]
     public class BaseEntity : IBaseEntity
     {
         public event PropertyChangedEventHandler PropertyChanged;
@@ -158,6 +157,7 @@ namespace KickStarter.Library.Entities
 
         [NotMapped]
         [IgnoreMap]
+        [XmlIgnore]
         public IDictionary<string, HashSet<string>> ValidationResults { get; protected set; }
 
         protected virtual string OnValidate(string propertyName)
