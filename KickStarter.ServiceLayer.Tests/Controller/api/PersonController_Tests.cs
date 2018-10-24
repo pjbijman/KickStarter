@@ -17,16 +17,17 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
         [InlineData(1)]
         public async Task GetPersonById_Should_return_OkObjectResult_with_valid_id(int id)
         {
-            Guid personId = Guid.NewGuid();
             // Setup
+            Guid personId = Guid.NewGuid();
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(id)));
 
+            //Act
             var result = await personController.GetPersonById(personId);
-
             var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            //Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _getPersonComponent.Verify(x => x.GetPersonById(personId), Times.Once);
         }
@@ -35,22 +36,23 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
         [InlineData(-1)]
         public async Task GetPersonById_Should_return_StatusCodeResult_204_when_no_person_found(int id)
         {
-            Guid personId = Guid.NewGuid();
             // Setup
+            Guid personId = Guid.NewGuid();
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(id)));
 
+            // Act
             var result = await personController.GetPersonById(personId);
-
             var expectedType = new StatusCodeResult(204).GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            //Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _getPersonComponent.Verify(x => x.GetPersonById(personId), Times.Once);
         }
 
         [Theory]
-        [InlineData(-1)] 
+        [InlineData(-1)]
         public async Task GetAllPersons_Should_return_StatusCodeResult_204_when_no_records_found(int type)
         {
             //Setup
@@ -58,12 +60,11 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
             //Act
             var result = await personController.GetPersonsAsync();
-
-            //Verify - Check for the same type
             var expectedType = new StatusCodeResult(204).GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            //Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _getPersonComponent.Verify(x => x.GetAllPersons(), Times.Once);
         }
@@ -77,12 +78,11 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
             //Act
             var result = await personController.GetPersonsAsync();
-            //List<Person>()
-            //Verify - Check for the same type
             var expectedType = new NoContentResult().GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            // Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _getPersonComponent.Verify(x => x.GetAllPersons(), Times.Once);
         }
@@ -96,16 +96,14 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
             //Act
             var result = await personController.GetPersonsAsync();
-            //List<Person>()
-            //Verify - Check for the same type
             var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            //Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _getPersonComponent.Verify(x => x.GetAllPersons(), Times.Once);
         }
-
 
         [Theory]
         [InlineData(1)]
@@ -116,12 +114,11 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(type)));
             //Act
             var result = await personController.SavePerson(Dummies.GetDummiePersonModel(type));
-
-            ////Verify - Check for the same type
             var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
-            Assert.True(expectedType.Equals(actualType));
 
+            //Assert
+            Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
             _savePersonComponent.Verify(x => x.SavePerson(It.IsAny<Person>()), Times.Once);
             _getPersonComponent.Verify(x => x.GetPersonById(It.IsAny<Guid>()), Times.Once);

@@ -21,13 +21,8 @@ namespace KickStarter.Library.Interfaces
     /// Interface IPerson
     /// </summary>
     [ServiceContract]
-    public interface IPerson
+    public interface IPerson: IBaseEntity
     {
-        /// <summary>
-        /// Gets or sets the person identifier.
-        /// </summary>
-        /// <value>The person identifier.</value>
-        //Guid Id { get; set; }
 
         /// <summary>
         /// Gets or sets the first name.
@@ -83,6 +78,8 @@ namespace KickStarter.Library.Interfaces
         /// <value>The image.</value>
         Byte[] Image { get; set; }
 
+        String FullName { get; }
 
+        string Description { get; set; }
     }
 }

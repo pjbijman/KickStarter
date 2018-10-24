@@ -158,7 +158,7 @@ namespace KickStarter.Library.Entities
         [NotMapped]
         [IgnoreMap]
         [XmlIgnore]
-        public IDictionary<string, HashSet<string>> ValidationResults { get; protected set; }
+        public IDictionary<string, HashSet<string>> ValidationResults { get; set; }
 
         protected virtual string OnValidate(string propertyName)
         {
@@ -214,6 +214,7 @@ namespace KickStarter.Library.Entities
                     ValidationResults[propertyName].Add(errorMessage);
             }
         }
+
     }
 }
 

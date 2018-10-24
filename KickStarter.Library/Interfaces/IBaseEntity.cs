@@ -13,7 +13,7 @@
 // ***********************************************************************
 using System;
 using System.Collections.Generic;
-using System.Text;
+using System.ComponentModel;
 
 namespace KickStarter.Library.Interfaces
 {
@@ -27,5 +27,10 @@ namespace KickStarter.Library.Interfaces
 
         DateTime UpdateDate { get; set; }
 
+        string Error { get; }
+
+        IDictionary<string, HashSet<string>> ValidationResults { get; set; }
+
+        event PropertyChangedEventHandler PropertyChanged;
     }
 }

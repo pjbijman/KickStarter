@@ -1,5 +1,6 @@
 ﻿using KickStarter.Library.Entities;
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
+using KickStarter.Library.Interfaces;
 using KickStartrer.Service.ClientModels;
 using System;
 using System.Collections.Generic;
@@ -90,7 +91,7 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
                 personlist = new List<Person>();
                 for (int i = 0; i < 10; i++)
                 {
-                    var person = new Person
+                    Person person = new Person
                     {
                         Id = Guid.NewGuid(),
                         DateOfBirth = DateTime.Now.AddDays(i),

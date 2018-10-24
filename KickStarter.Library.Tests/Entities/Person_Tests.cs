@@ -1,5 +1,6 @@
 ﻿using KickStarter.Library.Entities;
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
+using KickStarter.Library.Interfaces;
 using KickStarter.Library.Tests.Helpers;
 using System;
 using System.IO;
@@ -18,7 +19,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Test_Person_Constructor()
         {
-            var person = new Person();
+            IPerson person = new Person();
             Assert.IsType<Person>(person);
             Assert.NotNull(person.Id);
             Assert.Null(person.FirstName);
@@ -43,7 +44,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Can_Person_be_Seralized()
         {
-            var person = new Person
+            IPerson person = new Person
             {
                 Id = Guid.NewGuid(),
                 FirstName = String.Format("Person.FirstName"),
@@ -80,7 +81,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Can_Person_be_DeSeralized()
         {
-            var person = new Person
+            IPerson person = new Person
             {
                 Id = Guid.NewGuid(),
                 FirstName = String.Format("Person.FirstName"),
@@ -127,7 +128,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Test_Person_ToString()
         {
-            var person = new Person
+            IPerson person = new Person
             {
                 Id = Guid.NewGuid(),
                 FirstName = String.Format("Person.FirstName"),
@@ -148,7 +149,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_PersonId_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -166,7 +167,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_FirstName_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -184,7 +185,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_MiddleName_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -202,7 +203,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_LastName_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -220,7 +221,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_Insertion_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -238,7 +239,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_Suffix_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -256,7 +257,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_Gender_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -274,7 +275,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_DateOfBirth_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -292,7 +293,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_InsertDate_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -310,7 +311,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_Image_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
@@ -330,8 +331,7 @@ namespace KickStarter.Library.Tests.Entities
         [Fact]
         public void Test_Person_Validation()
         {
-            //Todo: validate object on Validation results
-            var person = new Person();
+            IPerson person = new Person();
             Assert.IsType<Person>(person);
             Assert.NotNull(person.Id);
             Assert.Null(person.FirstName);
@@ -353,6 +353,8 @@ namespace KickStarter.Library.Tests.Entities
             Assert.True(person.ValidationResults.ContainsKey("FirstName"));
             Assert.True(person.ValidationResults.ContainsKey("LastName"));
             Assert.True(person.ValidationResults.ContainsKey("DateOfBirth"));
+
+            //Todo: validate object on Validation results
 
             // Assert.True(person.ValidationResults.Contains("DateOfBirth", "First Name Required!"));
 
@@ -400,7 +402,7 @@ namespace KickStarter.Library.Tests.Entities
         public void Does_Person_Description_raise_event_when_changed()
         {
             var result = false;
-            var person = new Person();
+            IPerson person = new Person();
 
             person.PropertyChanged += (s, e) =>
             {
