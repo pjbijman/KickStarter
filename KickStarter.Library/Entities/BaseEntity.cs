@@ -85,13 +85,14 @@ namespace KickStarter.Library.Entities
         }
 
         [NotMapped]
+        [XmlIgnore]
         public Boolean IsValid
         {
             get
             {
                 return _isValid;
             }
-            set
+            private set
             {
                 if (_isValid != value)
                 {
@@ -199,7 +200,7 @@ namespace KickStarter.Library.Entities
                 ValidationResults.Add(item.MemberNames.First().ToString(), em);
 
             }
-            IsValid = (ValidationResults.Count == 0);
+            _isValid = (ValidationResults.Count == 0);
         }
 
         public void AddError(string propertyName, string errorMessage)

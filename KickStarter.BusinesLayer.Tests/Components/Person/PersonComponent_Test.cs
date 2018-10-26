@@ -15,8 +15,9 @@ namespace KickStarter.BusinesLayer.Tests.Components.Person
             //Todo: Finish tests.
             var result = _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(id)));
 
-            var expectedType = new Library.Entities.Person().GetType();
+            var expectedType = typeof(Task<Library.Entities.Person>);
             var actualType = result.GetType();
+
             Assert.True(expectedType.Equals(actualType));
         }
 

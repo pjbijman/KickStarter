@@ -92,7 +92,7 @@
             <param name="savePersonComponent"></param>
             <param name="deletePersonComponent"></param>
         </member>
-        <member name="M:KickStartrer.Service.Controllers.api.PersonController.GetPersonById(System.Guid)">
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.GetPersonByIdAsync(System.Guid)">
             <summary>
             Fetches a Person by its Id.
             </summary>
@@ -105,14 +105,14 @@
             </summary>
             <returns></returns>
         </member>
-        <member name="M:KickStartrer.Service.Controllers.api.PersonController.SavePerson(KickStartrer.Service.ClientModels.PersonModel)">
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.SavePersonAsync(KickStartrer.Service.ClientModels.PersonModel)">
             <summary>
             Saves a Personn to the repository.
             </summary>
             <param name="personSave"></param>
             <returns></returns>
         </member>
-        <member name="M:KickStartrer.Service.Controllers.api.PersonController.DeletePerson(System.Guid)">
+        <member name="M:KickStartrer.Service.Controllers.api.PersonController.DeletePersonAsync(System.Guid)">
             <summary>
             Deletes a person from the repository.
             </summary>

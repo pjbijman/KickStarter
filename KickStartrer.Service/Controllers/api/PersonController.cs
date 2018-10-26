@@ -3,9 +3,7 @@ using KickStarter.BusinessLayer.Components.Interfaces;
 using KickStarter.Library.Entities;
 using KickStartrer.Service.ClientModels;
 using KickStartrer.Service.Controllers.api.Interfaces;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -44,8 +42,8 @@ namespace KickStartrer.Service.Controllers.api
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpGet("GetPersonById/{id}")]
-        public async Task<IActionResult> GetPersonById(Guid id)
+        [HttpGet("GetPersonByIdAsync/{id}")]
+        public async Task<IActionResult> GetPersonByIdAsync(Guid id)
         {
             var person = await _getPersonComponent.Value.GetPersonById(id);
             if (person == null)
@@ -60,7 +58,7 @@ namespace KickStartrer.Service.Controllers.api
         /// Fetches a list of all Persons
         /// </summary>
         /// <returns></returns>
-        [HttpGet("GetPersonsList")]
+        [HttpGet("GetPersonsAsync")]
         public async Task<IActionResult> GetPersonsAsync()
         {
             var persons = await _getPersonComponent.Value.GetAllPersons();
@@ -81,8 +79,8 @@ namespace KickStartrer.Service.Controllers.api
         /// </summary>
         /// <param name="personSave"></param>
         /// <returns></returns>
-        [HttpPost("SavePerson")]
-         public async Task<IActionResult> SavePerson([FromBody] PersonModel personSave) 
+        [HttpPost("SavePersonAsync")]
+         public async Task<IActionResult> SavePersonAsync([FromBody] PersonModel personSave) 
         {
             var mappedPerson = Mapper.Map<PersonModel, Person>(personSave);
             //Validate mapped Person
@@ -101,8 +99,8 @@ namespace KickStartrer.Service.Controllers.api
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        [HttpDelete("DeletePerson/{id}")]
-        public async Task<IActionResult> DeletePerson(Guid id)
+        [HttpDelete("DeletePersonAsync/{id}")]
+        public async Task<IActionResult> DeletePersonAsync(Guid id)
         {
             var person = await _getPersonComponent.Value.GetPersonById(id);
             if (person == null)

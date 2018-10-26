@@ -15,14 +15,14 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(1)]
-        public async Task GetPersonById_Should_return_OkObjectResult_with_valid_id(int id)
+        public async Task GetPersonByIdAsync_Should_return_OkObjectResult_with_valid_id(int id)
         {
             // Setup
             Guid personId = Guid.NewGuid();
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(id)));
 
             //Act
-            var result = await personController.GetPersonById(personId);
+            var result = await personController.GetPersonByIdAsync(personId);
             var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
 
@@ -34,14 +34,14 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(-1)]
-        public async Task GetPersonById_Should_return_StatusCodeResult_204_when_no_person_found(int id)
+        public async Task GetPersonByIdAsync_Should_return_StatusCodeResult_204_when_no_person_found(int id)
         {
             // Setup
             Guid personId = Guid.NewGuid();
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(id)));
 
             // Act
-            var result = await personController.GetPersonById(personId);
+            var result = await personController.GetPersonByIdAsync(personId);
             var expectedType = new StatusCodeResult(204).GetType();
             var actualType = result.GetType();
 
@@ -53,7 +53,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(-1)]
-        public async Task GetAllPersons_Should_return_StatusCodeResult_204_when_no_records_found(int type)
+        public async Task GetPersonsAsync_Should_return_StatusCodeResult_204_when_no_records_found(int type)
         {
             //Setup
             _getPersonComponent.Setup(x => x.GetAllPersons()).Returns(Task.FromResult(Dummies.GetPeronList(type)));
@@ -71,7 +71,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(0)]
-        public async Task GetAllPersons_Should_return_NoContentResult_when_no_records_found(int type)
+        public async Task GetPersonsAsync_Should_return_NoContentResult_when_no_records_found(int type)
         {
             //Setup
             _getPersonComponent.Setup(x => x.GetAllPersons()).Returns(Task.FromResult(Dummies.GetPeronList(type)));
@@ -89,7 +89,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(1)]
-        public async Task GetAllPersons_Should_return_OkObjectResult_when_records_found(int type)
+        public async Task GetPersonsAsync_Should_return_OkObjectResult_when_records_found(int type)
         {
             //Setup
             _getPersonComponent.Setup(x => x.GetAllPersons()).Returns(Task.FromResult(Dummies.GetPeronList(type)));
@@ -107,13 +107,13 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
 
         [Theory]
         [InlineData(1)]
-        public async Task SaveUser_Should_Return_OkObjectResult_when_save_successfull(int type)
+        public async Task SavePersonAsync_Should_Return_OkObjectResult_when_save_successfull(int type)
         {
             //Setup
             _savePersonComponent.Setup(x => x.SavePerson(It.IsAny<Person>())).Returns(Task.FromResult(Dummies.GetDummiePerson(type)));
             _getPersonComponent.Setup(x => x.GetPersonById(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(type)));
             //Act
-            var result = await personController.SavePerson(Dummies.GetDummiePersonModel(type));
+            var result = await personController.SavePersonAsync(Dummies.GetDummiePersonModel(type));
             var expectedType = new OkObjectResult(result).GetType();
             var actualType = result.GetType();
 

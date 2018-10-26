@@ -72,7 +72,7 @@ namespace KickStartrer.Service.ClientModels
         ///// Gets or sets the image.
         ///// </summary>
         ///// <value>The image.</value>
-        //public Byte[] Image { get; set; }
+        public Byte[] Image { get; set; }
 
 
     }

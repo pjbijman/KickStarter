@@ -18,20 +18,22 @@ namespace KickStartrer.Service.Conversions
         /// <returns></returns>
         public Person Convert(PersonModel source, Person destination, ResolutionContext context)
         {
-            var person = new Person();
+            var person = new Person
+            {
+                // basic base entity properties
+                Id = source.Id,
 
-            // basic base entity properties
-            person.Id = source.Id;
-
-            person.FirstName = source.FirstName;
-            person.MiddleName = source.MiddleName;
-            person.Insertion = source.Insertion;
-            person.LastName = source.LastName;
-            person.Suffix = source.Suffix;
-            person.Gender = source.Gender;
-            person.DateOfBirth = source.DateOfBirth;
-            person.SocialSegurityNumber = source.SocialSegurityNumber;
-            person.Description = source.Description;
+                FirstName = source.FirstName,
+                MiddleName = source.MiddleName,
+                Insertion = source.Insertion,
+                LastName = source.LastName,
+                Suffix = source.Suffix,
+                Gender = source.Gender,
+                DateOfBirth = source.DateOfBirth,
+                SocialSegurityNumber = source.SocialSegurityNumber,
+                Description = source.Description,
+                Image = source.Image
+            };
             //person.Image = source.Image;
 
             return person;

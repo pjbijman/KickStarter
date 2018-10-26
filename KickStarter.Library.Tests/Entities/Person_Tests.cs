@@ -348,39 +348,31 @@ namespace KickStarter.Library.Tests.Entities
             Assert.Null(person.Error);
             Assert.True(person.IsValid == false);
 
-            var errors = ValidationHelper.ValidateEntity(person);
             //Check Validation collection for the correct key
             Assert.True(person.ValidationResults.ContainsKey("FirstName"));
             Assert.True(person.ValidationResults.ContainsKey("LastName"));
             Assert.True(person.ValidationResults.ContainsKey("DateOfBirth"));
 
-            //Todo: validate object on Validation results
-
-            // Assert.True(person.ValidationResults.Contains("DateOfBirth", "First Name Required!"));
-
-            //Check required fields
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("First Name Required!")) != null);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Last Name Required!")) != null);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Date Of Birth Required!")) != null);
+            //Todo: Combine key and valye test
+            //Assert.True(person.ValidationResults.Select(m => m.Key == "DateOfBirth" && m.Value.FirstOrDefault().Equals("Date Of Birth Required!")).FirstOrDefault());
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("First Name Required!")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Last Name Required!")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Date Of Birth Required!")) != null);
 
             Assert.True(person.IsValid == false);
 
             // Check for data length
             person.FirstName = TestHelper.RandomString(51);
-            errors = ValidationHelper.ValidateEntity(person);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Maximum 50 characters are allowed.")) != null);
 
             person.LastName = TestHelper.RandomString(51);
-            errors = ValidationHelper.ValidateEntity(person);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Maximum 50 characters are allowed.")) != null);
 
             person.Suffix = TestHelper.RandomString(51);
-            errors = ValidationHelper.ValidateEntity(person);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Maximum 50 characters are allowed.")) != null);
 
             person.Insertion = TestHelper.RandomString(51);
-            errors = ValidationHelper.ValidateEntity(person);
-            Assert.True(errors.Where(x => x.ErrorMessage.Contains("Maximum 50 characters are allowed.")) != null);
+            Assert.True(person.ValidationResults.Where(x => x.Value.Contains("Maximum 50 characters are allowed.")) != null);
 
             Assert.True(person.IsValid == false);
 
@@ -389,8 +381,6 @@ namespace KickStarter.Library.Tests.Entities
             person.Suffix = "Person Suffix";
             person.Insertion = "Person Insertion";
             person.DateOfBirth = DateTime.Now;
-
-            errors = ValidationHelper.ValidateEntity(person);
 
             Assert.True(person.ValidationResults.Count() == 0);
 

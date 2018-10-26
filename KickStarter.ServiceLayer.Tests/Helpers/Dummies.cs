@@ -1,6 +1,5 @@
 ﻿using KickStarter.Library.Entities;
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
-using KickStarter.Library.Interfaces;
 using KickStartrer.Service.ClientModels;
 using System;
 using System.Collections.Generic;

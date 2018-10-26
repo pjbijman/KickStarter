@@ -21,7 +21,7 @@ namespace KickStarter.Library.Interfaces
     {
         Guid Id { get; set; }
 
-        Boolean IsValid { get; set; }
+        Boolean IsValid { get; }
 
         DateTime InsertDate { get; set; }
 

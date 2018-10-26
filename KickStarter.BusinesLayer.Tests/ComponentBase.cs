@@ -19,6 +19,12 @@ namespace KickStarter.BusinesLayer.Tests
             new Lazy<IDeletePersonComponent>(_deletePersonComponent.Object);
         }
 
+        public bool IsSameOrSubclass(Type potentialBase, Type potentialDescendant)
+        {
+            return potentialDescendant.IsSubclassOf(potentialBase)
+                   || potentialDescendant == potentialBase;
+        }
+
         public void Dispose()
         {
            

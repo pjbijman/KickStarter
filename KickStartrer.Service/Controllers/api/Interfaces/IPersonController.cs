@@ -10,11 +10,11 @@ namespace KickStartrer.Service.Controllers.api.Interfaces
     {
         Task<IActionResult> GetPersonsAsync();
 
-        Task<IActionResult> GetPersonById(Guid personId);
+        Task<IActionResult> GetPersonByIdAsync(Guid id);
 
-        Task<IActionResult> SavePerson([FromBody] PersonModel personSave);
+        Task<IActionResult> SavePersonAsync([FromBody] PersonModel personSave);
 
-        Task<IActionResult> DeletePerson(Guid personId);
+        Task<IActionResult> DeletePersonAsync(Guid personId);
 
     }
 }
