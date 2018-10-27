@@ -45,7 +45,7 @@ namespace KickStartrer.Service.Controllers.api
         [HttpGet("GetPersonByIdAsync/{id}")]
         public async Task<IActionResult> GetPersonByIdAsync(Guid id)
         {
-            var person = await _getPersonComponent.Value.GetPersonById(id);
+            var person = await _getPersonComponent.Value.GetPersonByIdAsync(id);
             if (person == null)
             {
                 return new StatusCodeResult(204);
@@ -61,7 +61,7 @@ namespace KickStartrer.Service.Controllers.api
         [HttpGet("GetPersonsAsync")]
         public async Task<IActionResult> GetPersonsAsync()
         {
-            var persons = await _getPersonComponent.Value.GetAllPersons();
+            var persons = await _getPersonComponent.Value.GetAllPersonsAsync();
             if (persons == null)
             {
                 return new StatusCodeResult(204);
@@ -89,7 +89,7 @@ namespace KickStartrer.Service.Controllers.api
             {
                 return StatusCode(500);
             }
-            var returnPerson = await _getPersonComponent.Value.GetPersonById(savedPerson.Id);
+            var returnPerson = await _getPersonComponent.Value.GetPersonByIdAsync(savedPerson.Id);
             var result = Mapper.Map<Person, PersonModel>(returnPerson);
             return Ok(result);
         }
@@ -102,7 +102,7 @@ namespace KickStartrer.Service.Controllers.api
         [HttpDelete("DeletePersonAsync/{id}")]
         public async Task<IActionResult> DeletePersonAsync(Guid id)
         {
-            var person = await _getPersonComponent.Value.GetPersonById(id);
+            var person = await _getPersonComponent.Value.GetPersonByIdAsync(id);
             if (person == null)
             {
                 return new StatusCodeResult(204);

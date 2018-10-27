@@ -12,32 +12,32 @@ namespace KickStarter.BusinessLayer.Components.Person
     public class GetPersonsComponent : BusinessComponent, IGetPersonsComponent
     {
 
-        private readonly IPersonsRepository _personDataRepository;
+        private readonly IPersonsRepository _personsRepository;
 
         public GetPersonsComponent(IUnitOfWork unitOfWork,
            IPersonsRepository repository)
            : base(unitOfWork)
         {
-            _personDataRepository = repository;
+            _personsRepository = repository;
         }
 
-        public async Task<List<Library.Entities.Person>> GetAllPersons()
+        public async Task<List<Library.Entities.Person>> GetAllPersonsAsync()
         {
             var queryCriteria = new QueryCriteria<Library.Entities.Person>()
                 .WithoutTracking(); // readonly query
 
-            var persons = (await _personDataRepository.QueryAsync(queryCriteria)).Items.ToList();
+            var persons = (await _personsRepository.QueryAsync(queryCriteria)).Items.ToList();
 
             return persons;
         }
 
-        public async Task<Library.Entities.Person> GetPersonById(Guid id)
+        public async Task<Library.Entities.Person> GetPersonByIdAsync(Guid id)
         {
             var queryCriteria = new QueryCriteria<Library.Entities.Person>()
                 .WithFilter(a => a.Id == id)
                 .WithoutTracking();
 
-            return (await _personDataRepository.QueryAsync(queryCriteria)).Items.FirstOrDefault();
+            return (await _personsRepository.QueryAsync(queryCriteria)).Items.FirstOrDefault();
         }
     }
 

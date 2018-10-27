@@ -1,5 +1,6 @@
 ﻿using KickStarter.Library.Entities;
 using KickStarter.Library.Enums.Bandmate.Library.Enums;
+using KickStarter.Library.Interfaces;
 using KickStartrer.Service.ClientModels;
 using System;
 using System.Collections.Generic;
@@ -9,104 +10,125 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
     public static class Dummies
     {
         /// <summary>
-        /// type snaller then 0 returns Null, type == 0 returns new Object, type > 0 returns valid Object
+        /// Enumereation fro determining the kind of object to return
         /// </summary>
-        /// <param name="type"></param>
-        public static Person GetDummiePerson(int type)
+        public enum DummieInstance
         {
-
-            if (type < 0)
-            {
-                return null;
-            }
-            if (type == 0)
-            {
-                return new Person();
-            }
-            else
-            {
-                return new Person
-                {
-                    Id = Guid.NewGuid(),
-                    DateOfBirth = DateTime.Now,
-                    Description = "",
-                    FirstName = "John",
-                    Gender = Gender.Male,
-                    Image = null,
-                    LastName = "Doe",
-                    MiddleName = "",
-                    SocialSegurityNumber = "123.456.789",
-                    Suffix = "Sr."
-                };
-            }
-        }
-
-        public static PersonModel GetDummiePersonModel(int type)
-        {
-
-            if (type < 0)
-            {
-                return null;
-            }
-            if (type == 0)
-            {
-                return new PersonModel();
-            }
-            else
-            {
-                return new PersonModel
-                {
-                    Id = Guid.NewGuid(),
-                    DateOfBirth = DateTime.Now,
-                    Description = "",
-                    FirstName = "John",
-                    Gender = Gender.Male,
-                    //Image = null,
-                    LastName = "Doe",
-                    MiddleName = "",
-                    SocialSegurityNumber = "123.456.789",
-                    Suffix = "Sr."
-                };
-            }
+            NullObject = 0,
+            NewInstance = 1,
+            ValidInstance = 2
         }
 
         /// <summary>
-        /// type snaller then 0 returns Null, type == 0 returns new Object, type > 0 returns valid Object
+        /// dummieInstance == NullObject returns Null, dummieInstance == NewInstance returns new Person, dummieInstance == ValidInstance returns valid Person
         /// </summary>
-        /// <param name="type"></param>
-        public static List<Person> GetPeronList(int type)
+        /// <param name="dummieInstance"></param>
+        public static Person GetDummiePerson(DummieInstance dummieInstance)
         {
-            List<Person> personlist;
-            if (type < 0)
+            Person person = new Person(); ;
+            switch (dummieInstance)
             {
-                return null;
-            }
-            if (type == 0)
-            {
-                return new List<Person>();
-            }
-            else
-            {
-                personlist = new List<Person>();
-                for (int i = 0; i < 10; i++)
-                {
-                    Person person = new Person
+                case DummieInstance.NullObject:
+                    person = null;
+                    break;
+                case DummieInstance.NewInstance:
+                    person = new Person();
+                    break;
+                case DummieInstance.ValidInstance:
+                    person = new Person
                     {
                         Id = Guid.NewGuid(),
-                        DateOfBirth = DateTime.Now.AddDays(i),
-                        Description = string.Format("Description -{0}", i),
-                        FirstName = string.Format("Jhon -{0}", i),
+                        DateOfBirth = DateTime.Now,
+                        Description = "",
+                        FirstName = "John",
                         Gender = Gender.Male,
                         Image = null,
-                        LastName = string.Format("Doe -{0}", i),
+                        LastName = "Doe",
                         MiddleName = "",
-                        SocialSegurityNumber = string.Format("123.456.789.{0}", i),
+                        SocialSegurityNumber = "123.456.789",
                         Suffix = "Sr."
                     };
-                    personlist.Add(person);
-                }
-                return personlist;
+                    break;
+                default:
+                    break;
             }
+            return person;
+        }
+
+        /// <summary>
+        /// dummieInstance == NullObject returns Null, dummieInstance == NewInstance returns new PersonModel, dummieInstance == ValidInstance returns valid PersonModel>
+        /// </summary>
+        /// <param name="dummieInstance"></param>
+        public static PersonModel GetDummiePersonModel(DummieInstance dummieInstance)
+        {
+            PersonModel personModel = new PersonModel();
+            switch (dummieInstance)
+            {
+                case DummieInstance.NullObject:
+                    personModel = null;
+                    break;
+                case DummieInstance.NewInstance:
+                    personModel = new PersonModel();
+                    break;
+                case DummieInstance.ValidInstance:
+                    personModel = new PersonModel
+                    {
+                        Id = Guid.NewGuid(),
+                        DateOfBirth = DateTime.Now,
+                        Description = "",
+                        FirstName = "John",
+                        Gender = Gender.Male,
+                        //Image = null,
+                        LastName = "Doe",
+                        MiddleName = "",
+                        SocialSegurityNumber = "123.456.789",
+                        Suffix = "Sr."
+                    };
+                    break;
+                default:
+                    break;
+            }
+            return personModel;
+        }
+
+        /// <summary>
+        /// dummieInstance == NullObject returns Null, dummieInstance == NewInstance returns new List<Person>, dummieInstance == ValidInstance returns valid List<Person>
+        /// </summary>
+        /// <param name="dummieInstance"></param>
+        public static List<Person> GetPeronList(DummieInstance dummieInstance)
+        {
+            List<Person> personlist = new List<Person>();
+
+            switch (dummieInstance)
+            {
+                case DummieInstance.NullObject:
+                    personlist = null;
+                    break;
+                case DummieInstance.NewInstance:
+                    personlist = new List<Person>();
+                    break;
+                case DummieInstance.ValidInstance:
+                    for (int i = 0; i < 10; i++)
+                    {
+                        Person person = new Person
+                        {
+                            Id = Guid.NewGuid(),
+                            DateOfBirth = DateTime.Now.AddDays(i),
+                            Description = string.Format("Description -{0}", i),
+                            FirstName = string.Format("Jhon -{0}", i),
+                            Gender = Gender.Male,
+                            Image = null,
+                            LastName = string.Format("Doe -{0}", i),
+                            MiddleName = "",
+                            SocialSegurityNumber = string.Format("123.456.789.{0}", i),
+                            Suffix = "Sr."
+                        };
+                        personlist.Add(person);
+                    }
+                    break;
+            }
+
+            return personlist;
         }
     }
 }

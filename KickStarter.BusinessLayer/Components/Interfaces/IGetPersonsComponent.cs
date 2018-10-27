@@ -6,8 +6,9 @@ namespace KickStarter.BusinessLayer.Components.Interfaces
 {
     public interface IGetPersonsComponent
     {
-        Task<Library.Entities.Person> GetPersonById(Guid id);
-        Task<List<Library.Entities.Person>> GetAllPersons();
+        Task<Library.Entities.Person> GetPersonByIdAsync(Guid id);
+
+        Task<List<Library.Entities.Person>> GetAllPersonsAsync();
     }
 
 }
