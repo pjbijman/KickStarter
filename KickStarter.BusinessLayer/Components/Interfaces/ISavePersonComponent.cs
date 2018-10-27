@@ -4,7 +4,7 @@ namespace KickStarter.BusinessLayer.Components.Interfaces
 {
     public interface ISavePersonComponent
     {
-        Task<Library.Entities.Person> SavePerson(Library.Entities.Person person);
+        Task<Library.Entities.Person> SavePersonAsync(Library.Entities.Person person);
     }
 
 }

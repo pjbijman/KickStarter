@@ -11,7 +11,7 @@ namespace KickStarter.BusinesLayer.Tests.Components.Person
     public class PersonComponent_Test : ComponentBase
     {
         [Fact]
-        public async void GetPersonById_with_valid_id_should_return_a_Person()
+        public async void GetPersonByIdAsync_with_valid_id_should_return_a_Person()
         {
             // Setup
             Guid personId = Guid.NewGuid();
@@ -23,7 +23,7 @@ namespace KickStarter.BusinesLayer.Tests.Components.Person
 
             var expectedType = typeof(Library.Entities.Person); // TODO: Should be a Task return
             var actualType = result.GetType();
-            
+
             //Assert
             Assert.True(expectedType.Equals(actualType));
         }

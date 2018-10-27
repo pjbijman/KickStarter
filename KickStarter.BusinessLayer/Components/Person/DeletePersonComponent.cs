@@ -19,7 +19,7 @@ namespace KickStarter.BusinessLayer.Components.Person
             _personDataRepository = repository;
         }
 
-        public async Task<int> DeletePerson(Guid personId)
+        public async Task<int> DeletePersonAsync(Guid personId)
         {
 
             var queryCriteria = new QueryCriteria<Library.Entities.Person>()

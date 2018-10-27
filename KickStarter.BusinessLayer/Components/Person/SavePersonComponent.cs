@@ -17,7 +17,7 @@ namespace KickStarter.BusinessLayer.Components.Person
             _personRepository = repository;
         }
 
-        public async Task<Library.Entities.Person> SavePerson(Library.Entities.Person person)
+        public async Task<Library.Entities.Person> SavePersonAsync(Library.Entities.Person person)
         {
             // Todo: Add errorhandling
             var updatedPerson = _personRepository.AddOrUpdate(person);
@@ -27,4 +27,5 @@ namespace KickStarter.BusinessLayer.Components.Person
             return updatedPerson;
         }
     }
+
 }

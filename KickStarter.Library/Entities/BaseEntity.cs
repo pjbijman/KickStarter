@@ -148,7 +148,7 @@ namespace KickStarter.Library.Entities
 
         public string Error
         {
-            get { return null; }    //TODO: Check where this is comming from. Is triggered by a report call.
+            get { return null; }    //TODO: Check where this is comming from. 
         }
 
         //string IDataErrorInfo.this[string propertyName]

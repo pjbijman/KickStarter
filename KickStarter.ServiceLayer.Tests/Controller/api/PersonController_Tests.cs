@@ -105,7 +105,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
         public async Task SavePersonAsync_Should_Return_OkObjectResult_when_save_successfull()
         {
             //Setup
-            _savePersonComponent.Setup(x => x.SavePerson(It.IsAny<Person>())).Returns(Task.FromResult(Dummies.GetDummiePerson(DummieInstance.NewInstance)));
+            _savePersonComponent.Setup(x => x.SavePersonAsync(It.IsAny<Person>())).Returns(Task.FromResult(Dummies.GetDummiePerson(DummieInstance.NewInstance)));
             _getPersonComponent.Setup(x => x.GetPersonByIdAsync(It.IsAny<Guid>())).Returns(Task.FromResult(Dummies.GetDummiePerson(DummieInstance.NewInstance)));
             //Act
             var result = await personController.SavePersonAsync(Dummies.GetDummiePersonModel(DummieInstance.NewInstance));
@@ -115,7 +115,7 @@ namespace KickStarter.ServiceLayer.Tests.Controller.api
             //Assert
             Assert.True(expectedType.Equals(actualType));
             //Check if the execute was called at least once on the controller method
-            _savePersonComponent.Verify(x => x.SavePerson(It.IsAny<Person>()), Times.Once);
+            _savePersonComponent.Verify(x => x.SavePersonAsync(It.IsAny<Person>()), Times.Once);
             _getPersonComponent.Verify(x => x.GetPersonByIdAsync(It.IsAny<Guid>()), Times.Once);
         }
 

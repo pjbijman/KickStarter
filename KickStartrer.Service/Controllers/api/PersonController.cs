@@ -84,7 +84,7 @@ namespace KickStartrer.Service.Controllers.api
         {
             var mappedPerson = Mapper.Map<PersonModel, Person>(personSave);
             //Validate mapped Person
-            var savedPerson = await _savePersonComponent.Value.SavePerson(mappedPerson);
+            var savedPerson = await _savePersonComponent.Value.SavePersonAsync(mappedPerson);
             if (savedPerson == null)
             {
                 return StatusCode(500);
@@ -107,7 +107,7 @@ namespace KickStartrer.Service.Controllers.api
             {
                 return new StatusCodeResult(204);
             }
-            var output = await _deletePersonComponent.Value.DeletePerson(person.Id);
+            var output = await _deletePersonComponent.Value.DeletePersonAsync(person.Id);
             return Ok();
         }
 
