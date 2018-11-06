@@ -5,13 +5,7 @@ VisualStudioVersion = 15.0.26430.6
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.BusinessLayer", "KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj", "{EAB9E919-3713-458F-BC66-3A2E87482905}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.DataLayer", "KickStarter.DataLayer\KickStarter.DataLayer.csproj", "{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Framework", "Kickstarter.Framework\KickStarter.Framework.csproj", "{B93F1570-B770-4957-B2F7-F8DCC10CAA60}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library", "\\Mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library\KickStarter.Library.csproj", "{FE60520F-6507-40AA-A8DF-23C4A53D267A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library.Tests", "\\Mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library.Tests\KickStarter.Library.Tests.csproj", "{D0FDC24C-F084-4252-87ED-2BD67B19D28A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.ServiceLayer.Tests", "KickStarter.ServiceLayer.Tests\KickStarter.ServiceLayer.Tests.csproj", "{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}"
 EndProject
@@ -26,6 +20,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReadMe.txt = ReadMe.txt
 	EndProjectSection
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library", "KickStarter.Library\KickStarter.Library.csproj", "{3BAB0AB3-D0B2-49F6-8565-D9BDA9D667AC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.Library.Tests", "KickStarter.Library.Tests\KickStarter.Library.Tests.csproj", "{01C1F016-3037-45CE-B7F2-8A4765FC0E33}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.DataLayer", "KickStarter.DataLayer\KickStarter.DataLayer.csproj", "{19077B59-9F79-4080-A0A2-4D3DDCF8A474}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KickStarter.PresentationLayer", "..\AngularAppTestNovember\AngularAppTestNovember\KickStarter.PresentationLayer.csproj", "{B36D1E45-F36C-4A81-B5FC-3EE76070E6AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,22 +38,10 @@ Global
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EAB9E919-3713-458F-BC66-3A2E87482905}.Release|Any CPU.Build.0 = Release|Any CPU
-		{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{ABAF7EC4-AC4A-47DF-818C-650CA4BE9EC9}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B93F1570-B770-4957-B2F7-F8DCC10CAA60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B93F1570-B770-4957-B2F7-F8DCC10CAA60}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B93F1570-B770-4957-B2F7-F8DCC10CAA60}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B93F1570-B770-4957-B2F7-F8DCC10CAA60}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FE60520F-6507-40AA-A8DF-23C4A53D267A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FE60520F-6507-40AA-A8DF-23C4A53D267A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FE60520F-6507-40AA-A8DF-23C4A53D267A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FE60520F-6507-40AA-A8DF-23C4A53D267A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0FDC24C-F084-4252-87ED-2BD67B19D28A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0FDC24C-F084-4252-87ED-2BD67B19D28A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0FDC24C-F084-4252-87ED-2BD67B19D28A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0FDC24C-F084-4252-87ED-2BD67B19D28A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C2BF0BC-0F78-4606-AA60-D94C6AC02518}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -68,6 +58,22 @@ Global
 		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{24A02274-6757-4F11-9D47-BC9E0CFBC649}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3BAB0AB3-D0B2-49F6-8565-D9BDA9D667AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3BAB0AB3-D0B2-49F6-8565-D9BDA9D667AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3BAB0AB3-D0B2-49F6-8565-D9BDA9D667AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3BAB0AB3-D0B2-49F6-8565-D9BDA9D667AC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{01C1F016-3037-45CE-B7F2-8A4765FC0E33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{01C1F016-3037-45CE-B7F2-8A4765FC0E33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{01C1F016-3037-45CE-B7F2-8A4765FC0E33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{01C1F016-3037-45CE-B7F2-8A4765FC0E33}.Release|Any CPU.Build.0 = Release|Any CPU
+		{19077B59-9F79-4080-A0A2-4D3DDCF8A474}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19077B59-9F79-4080-A0A2-4D3DDCF8A474}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19077B59-9F79-4080-A0A2-4D3DDCF8A474}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19077B59-9F79-4080-A0A2-4D3DDCF8A474}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B36D1E45-F36C-4A81-B5FC-3EE76070E6AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B36D1E45-F36C-4A81-B5FC-3EE76070E6AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B36D1E45-F36C-4A81-B5FC-3EE76070E6AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B36D1E45-F36C-4A81-B5FC-3EE76070E6AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

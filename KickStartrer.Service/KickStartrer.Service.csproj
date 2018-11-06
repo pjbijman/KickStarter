@@ -5,7 +5,6 @@
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>\\Mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStartrer.Service\KickStarter.Swagger.xml</DocumentationFile>
   </PropertyGroup>
 
   <ItemGroup>

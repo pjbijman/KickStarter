@@ -27,7 +27,9 @@
 3.4		Add a entity to Model Typeconverter for the new entity in KickStartrer.Service.Conversion
 3.5		Create a xUnit test in Kickstarter.ServiceLayer.Tests.Controller.api with the name of the new controller
 3.6		Compose the xUnit test according to the requirements
-3.7		Complete the controller so it passes the test (TIP! do one action at a time)
+3.7		Create a xUnit test in KickStarter.ServiceLayer.Tests.Conversions with the name of the new TypeConverter
+3.8		Compose the xUnit test for the mapping both way's
+3.9		Complete the controller so it passes the test (TIP! do one action at a time)
 
 4.	Steps to add a dataservice for the new entity (KickStarter.DataLayer)
 =======================================================================

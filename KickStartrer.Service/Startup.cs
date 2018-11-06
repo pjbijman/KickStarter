@@ -65,6 +65,8 @@ namespace KickStarter.Service
 
             services.ConfigureBusinessLayerServices(Configuration);
 
+            services.AddCors();
+
             //services.ConfigureSwaggerGen(c => { c.SwaggerDoc("v1", new Info { Version = "V1", Title = "KickStarter API" }); });
             // Register the Swagger generator, defining one or more Swagger documents
             services.AddSwaggerGen(option => { option.SwaggerDoc("v1", new Info { Title = "KickStarter API", Version = "v1" }); });
@@ -80,6 +82,7 @@ namespace KickStarter.Service
 
             var applicationContainer = builder.Build();
             return new AutofacServiceProvider(applicationContainer);
+
         }
 
         /// <summary>
@@ -123,6 +126,8 @@ namespace KickStarter.Service
                 await next();
             });
 
+            app.UseCors(builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+
             app.UseMvc();
 
             app.UseDefaultFiles();
@@ -130,13 +135,13 @@ namespace KickStarter.Service
 
             app.UseStatusCodePagesWithReExecute("/httpstatus/{0}");
 
-            //if (env.IsDevelopment())
-            //{
-            //    //Import default data.
-            //    var import = new KickStarter_Testdata.Import(false,
-            //                                        app.ApplicationServices.GetService<DataLayer.EntityFramework.DataContext>(),
-            //                                        Configuration);
-            //}
+            if (env.IsDevelopment())
+            {
+                //Import default data.
+                var import = new KickStarter_Testdata.Import(false,
+                                                    app.ApplicationServices.GetService<DataLayer.EntityFramework.DataContext>(),
+                                                    Configuration);
+            }
         }
     }
 }

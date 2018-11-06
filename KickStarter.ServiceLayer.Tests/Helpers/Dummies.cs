@@ -9,6 +9,8 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
 {
     public static class Dummies
     {
+        private static DateTime _dateOfBirth = new DateTime(1957, 08, 11);
+
         /// <summary>
         /// Enumereation fro determining the kind of object to return
         /// </summary>
@@ -38,15 +40,16 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
                     person = new Person
                     {
                         Id = Guid.NewGuid(),
-                        DateOfBirth = DateTime.Now,
+                        DateOfBirth = _dateOfBirth,
                         Description = "",
                         FirstName = "John",
                         Gender = Gender.Male,
-                        Image = null,
+                        Image = Library.Helpers.Helpers.GetDummyImage(),
                         LastName = "Doe",
                         MiddleName = "",
                         SocialSegurityNumber = "123.456.789",
-                        Suffix = "Sr."
+                        Suffix = "Sr.",
+                        Insertion = ""
                     };
                     break;
                 default:
@@ -74,15 +77,16 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
                     personModel = new PersonModel
                     {
                         Id = Guid.NewGuid(),
-                        DateOfBirth = DateTime.Now,
+                        DateOfBirth = _dateOfBirth,
                         Description = "",
                         FirstName = "John",
                         Gender = Gender.Male,
-                        //Image = null,
+                        Image = Library.Helpers.Helpers.GetDummyImage(),
                         LastName = "Doe",
                         MiddleName = "",
                         SocialSegurityNumber = "123.456.789",
-                        Suffix = "Sr."
+                        Suffix = "Sr.",
+                        Insertion = ""
                     };
                     break;
                 default:
@@ -113,11 +117,11 @@ namespace KickStarter.ServiceLayer.Tests.Helpers
                         Person person = new Person
                         {
                             Id = Guid.NewGuid(),
-                            DateOfBirth = DateTime.Now.AddDays(i),
+                            DateOfBirth = _dateOfBirth.AddDays(i),
                             Description = string.Format("Description -{0}", i),
                             FirstName = string.Format("Jhon -{0}", i),
                             Gender = Gender.Male,
-                            Image = null,
+                            Image = Library.Helpers.Helpers.GetDummyImage(),
                             LastName = string.Format("Doe -{0}", i),
                             MiddleName = "",
                             SocialSegurityNumber = string.Format("123.456.789.{0}", i),

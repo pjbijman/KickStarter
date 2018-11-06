@@ -71,7 +71,7 @@ namespace KickStartrer.Service.Controllers.api
                 return new NoContentResult();   // No content
             }
             var result = Mapper.Map<IList<Person>, IList<PersonModel>>(persons);
-            return Ok(result);
+            return Ok(persons);
         }
 
         /// <summary>

@@ -5,10 +5,7 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DocumentationFile>\\Mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.ServiceLayer.Servives\KickStarter.Swagger.xml</DocumentationFile>
-  </PropertyGroup>
-
+  
   <ItemGroup>
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="4.2.2" />
     <PackageReference Include="AutoMapper" Version="6.2.2" />
@@ -35,10 +32,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\KickStarter.BusinessLayer\KickStarter.BusinessLayer.csproj" />
-    <ProjectReference Include="..\KickStarter.DataLayer\KickStarter.DataLayer.csproj" />
-    <ProjectReference Include="\\mac\Home\Documents\Visual Studio 2017\Projects\KickStarter\KickStarter.Library\KickStarter.Library.csproj" />
-  </ItemGroup>
+ </ItemGroup>
 
   <ItemGroup>
     <None Update="AppSettings.json">
