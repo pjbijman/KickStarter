@@ -1,0 +1,24 @@
+<h1>Person Data</h1>
+
+<p>This component demonstrates fetching data from the server.</p>
+
+<p *ngIf="!persons"><em>Loading...</em></p>
+
+<table class='table' *ngIf="persons">
+  <thead>
+
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Gender</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let person of persons">
+      <td>{{ person.firstName }}</td>
+      <td>{{ person.lastName }}</td>
+      <td>{{ person.gender }}</td>
+    </tr>
+  </tbody>
+</table>
